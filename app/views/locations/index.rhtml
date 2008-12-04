@@ -1,0 +1,7 @@
+<% content_for("header") do %>
+	<%= GMap.header(:hl => 'nl', :host => request.host) %>
+	<%= @map.to_html %>
+<% end %>
+<h2 style="text-align:center;">Kop Optocht 2008</h2>
+<%= @map.div(:width => 1220, :height => 600) %>
+<p>Precisie: +/- <%= @locations.first.horizontal_accuracy.to_i %> meter om <%= @locations.first.created_at %></p>
