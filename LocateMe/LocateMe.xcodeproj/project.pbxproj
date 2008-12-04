@@ -1,0 +1,373 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1BF484510E193AF60081341F /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF4844B0E193AF60081341F /* FlipsideView.xib */; };
+		1BF484520E193AF60081341F /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF4844D0E193AF60081341F /* MainView.xib */; };
+		1BF484530E193AF60081341F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF4844F0E193AF60081341F /* MainWindow.xib */; };
+		1D3623260D0F684500981E51 /* LocateMeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* LocateMeAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
+		289233AF0DB2D0DB0083E9F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AB0DB2D0DB0083E9F9 /* RootViewController.m */; };
+		289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */; };
+		4035E76F0EDDD8400036FE89 /* LogoLeft.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4035E76E0EDDD8400036FE89 /* LogoLeft.gif */; };
+		4035E7710EDDD8B10036FE89 /* LogoFiller.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4035E7700EDDD8B10036FE89 /* LogoFiller.gif */; };
+		407430CE0EE185F9005FA343 /* segment_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 407430CB0EE185F9005FA343 /* segment_check.png */; };
+		407430CF0EE185F9005FA343 /* slider_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 407430CC0EE185F9005FA343 /* slider_ball.png */; };
+		407430D00EE185F9005FA343 /* segment_tools.png in Resources */ = {isa = PBXBuildFile; fileRef = 407430CD0EE185F9005FA343 /* segment_tools.png */; };
+		89172B0B0DEF5DB10031F4F9 /* AccuracyPickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 89172B0A0DEF5DB10031F4F9 /* AccuracyPickerItem.m */; };
+		89172B440DEF5E1E0031F4F9 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89172B430DEF5E1E0031F4F9 /* MyCLController.m */; };
+		89172B910DEF669C0031F4F9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89172B900DEF669C0031F4F9 /* CoreLocation.framework */; };
+		899AD4390DF6011E00D7D5B8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 899AD4380DF6011E00D7D5B8 /* Default.png */; };
+		899AD45E0DF6040400D7D5B8 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 899AD45D0DF6040400D7D5B8 /* Icon.png */; };
+		89E2DFBF0DF0CEA4006E977B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E2DFBE0DF0CEA4006E977B /* Foundation.framework */; };
+		89E3FE0F0DEFD42C0064778C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89E3FE0E0DEFD42C0064778C /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1BF4844C0E193AF60081341F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideView.xib; sourceTree = "<group>"; };
+		1BF4844E0E193AF60081341F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainView.xib; sourceTree = "<group>"; };
+		1BF484500E193AF60081341F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* LocateMeAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocateMeAppDelegate.h; sourceTree = "<group>"; usesTabs = 0; };
+		1D3623250D0F684500981E51 /* LocateMeAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocateMeAppDelegate.m; sourceTree = "<group>"; usesTabs = 0; };
+		1D6058910D05DD3D006BFB54 /* LocateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		289233A80DB2D0DB0083E9F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; usesTabs = 0; };
+		289233A90DB2D0DB0083E9F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; usesTabs = 0; };
+		289233AA0DB2D0DB0083E9F9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; usesTabs = 0; };
+		289233AB0DB2D0DB0083E9F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; usesTabs = 0; };
+		289233AC0DB2D0DB0083E9F9 /* FlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlipsideViewController.h; path = Classes/FlipsideViewController.h; sourceTree = "<group>"; usesTabs = 0; };
+		289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlipsideViewController.m; path = Classes/FlipsideViewController.m; sourceTree = "<group>"; usesTabs = 0; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; usesTabs = 0; };
+		32CA4F630368D1EE00C91783 /* LocateMe_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocateMe_Prefix.pch; sourceTree = "<group>"; usesTabs = 0; };
+		4035E76E0EDDD8400036FE89 /* LogoLeft.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LogoLeft.gif; sourceTree = "<group>"; };
+		4035E7700EDDD8B10036FE89 /* LogoFiller.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LogoFiller.gif; sourceTree = "<group>"; };
+		407430CB0EE185F9005FA343 /* segment_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = segment_check.png; sourceTree = "<group>"; };
+		407430CC0EE185F9005FA343 /* slider_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider_ball.png; sourceTree = "<group>"; };
+		407430CD0EE185F9005FA343 /* segment_tools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = segment_tools.png; sourceTree = "<group>"; };
+		89172B090DEF5DB10031F4F9 /* AccuracyPickerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccuracyPickerItem.h; path = Classes/AccuracyPickerItem.h; sourceTree = "<group>"; usesTabs = 0; };
+		89172B0A0DEF5DB10031F4F9 /* AccuracyPickerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccuracyPickerItem.m; path = Classes/AccuracyPickerItem.m; sourceTree = "<group>"; usesTabs = 0; };
+		89172B420DEF5E1E0031F4F9 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = Classes/MyCLController.h; sourceTree = "<group>"; usesTabs = 0; };
+		89172B430DEF5E1E0031F4F9 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = Classes/MyCLController.m; sourceTree = "<group>"; usesTabs = 0; };
+		89172B900DEF669C0031F4F9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8937D4470DF0E8EF001AA23D /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
+		899AD4380DF6011E00D7D5B8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		899AD45D0DF6040400D7D5B8 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		89E2DFBE0DF0CEA4006E977B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		89E3FE0E0DEFD42C0064778C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				89172B910DEF669C0031F4F9 /* CoreLocation.framework in Frameworks */,
+				89E2DFBF0DF0CEA4006E977B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Application Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				289233AA0DB2D0DB0083E9F9 /* RootViewController.h */,
+				289233AB0DB2D0DB0083E9F9 /* RootViewController.m */,
+				1D3623240D0F684500981E51 /* LocateMeAppDelegate.h */,
+				1D3623250D0F684500981E51 /* LocateMeAppDelegate.m */,
+			);
+			name = "Application Controllers";
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* LocateMe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		281C6CD70DB2D82200F60ACC /* Flipside View */ = {
+			isa = PBXGroup;
+			children = (
+				289233AC0DB2D0DB0083E9F9 /* FlipsideViewController.h */,
+				289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */,
+				89172B090DEF5DB10031F4F9 /* AccuracyPickerItem.h */,
+				89172B0A0DEF5DB10031F4F9 /* AccuracyPickerItem.m */,
+			);
+			name = "Flipside View";
+			sourceTree = "<group>";
+		};
+		289233A00DB2D0730083E9F9 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				289233A80DB2D0DB0083E9F9 /* MainViewController.h */,
+				289233A90DB2D0DB0083E9F9 /* MainViewController.m */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				8937D4470DF0E8EF001AA23D /* ReadMe.txt */,
+				289233A00DB2D0730083E9F9 /* Main View */,
+				281C6CD70DB2D82200F60ACC /* Flipside View */,
+				080E96DDFE201D6D7F000001 /* Application Controllers */,
+				89172B410DEF5E1E0031F4F9 /* CoreLocation Delegate */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* LocateMe_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				407430CB0EE185F9005FA343 /* segment_check.png */,
+				407430CC0EE185F9005FA343 /* slider_ball.png */,
+				407430CD0EE185F9005FA343 /* segment_tools.png */,
+				4035E7700EDDD8B10036FE89 /* LogoFiller.gif */,
+				4035E76E0EDDD8400036FE89 /* LogoLeft.gif */,
+				1BF4844B0E193AF60081341F /* FlipsideView.xib */,
+				1BF4844D0E193AF60081341F /* MainView.xib */,
+				1BF4844F0E193AF60081341F /* MainWindow.xib */,
+				899AD45D0DF6040400D7D5B8 /* Icon.png */,
+				899AD4380DF6011E00D7D5B8 /* Default.png */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				89E3FE0E0DEFD42C0064778C /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89E2DFBE0DF0CEA4006E977B /* Foundation.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				89172B900DEF669C0031F4F9 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89172B410DEF5E1E0031F4F9 /* CoreLocation Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				89172B420DEF5E1E0031F4F9 /* MyCLController.h */,
+				89172B430DEF5E1E0031F4F9 /* MyCLController.m */,
+			);
+			name = "CoreLocation Delegate";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* LocateMe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "LocateMe" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocateMe;
+			productName = LocateMe;
+			productReference = 1D6058910D05DD3D006BFB54 /* LocateMe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LocateMe" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* LocateMe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89E3FE0F0DEFD42C0064778C /* Localizable.strings in Resources */,
+				899AD4390DF6011E00D7D5B8 /* Default.png in Resources */,
+				899AD45E0DF6040400D7D5B8 /* Icon.png in Resources */,
+				1BF484510E193AF60081341F /* FlipsideView.xib in Resources */,
+				1BF484520E193AF60081341F /* MainView.xib in Resources */,
+				1BF484530E193AF60081341F /* MainWindow.xib in Resources */,
+				4035E76F0EDDD8400036FE89 /* LogoLeft.gif in Resources */,
+				4035E7710EDDD8B10036FE89 /* LogoFiller.gif in Resources */,
+				407430CE0EE185F9005FA343 /* segment_check.png in Resources */,
+				407430CF0EE185F9005FA343 /* slider_ball.png in Resources */,
+				407430D00EE185F9005FA343 /* segment_tools.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* LocateMeAppDelegate.m in Sources */,
+				289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */,
+				289233AF0DB2D0DB0083E9F9 /* RootViewController.m in Sources */,
+				289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */,
+				89172B0B0DEF5DB10031F4F9 /* AccuracyPickerItem.m in Sources */,
+				89172B440DEF5E1E0031F4F9 /* MyCLController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1BF4844B0E193AF60081341F /* FlipsideView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BF4844C0E193AF60081341F /* en */,
+			);
+			name = FlipsideView.xib;
+			sourceTree = "<group>";
+		};
+		1BF4844D0E193AF60081341F /* MainView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BF4844E0E193AF60081341F /* en */,
+			);
+			name = MainView.xib;
+			sourceTree = "<group>";
+		};
+		1BF4844F0E193AF60081341F /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BF484500E193AF60081341F /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LocateMe_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = LocateMe;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = LocateMe_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = LocateMe;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "LocateMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LocateMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
