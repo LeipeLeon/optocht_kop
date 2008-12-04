@@ -40,6 +40,6 @@ production:
   encoding: utf8
   database: optocht_production
   pool: 5
-  username: root
-  password: 
-  socket: /tmp/mysql.sock
+  username: pampus
+  password: borgora
+  socket: /var/lib/mysql/mysql.sock
