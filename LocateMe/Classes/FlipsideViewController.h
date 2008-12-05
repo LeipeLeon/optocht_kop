@@ -58,7 +58,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 	IBOutlet UILabel *distanceFilterSliderLabel2;
 	IBOutlet UILabel *distanceFilterSliderLabel3;
 	IBOutlet UILabel *distanceFilterSliderLabel4;
-    IBOutlet UITabBar *
+//    IBOutlet UITabBar *
 	NSArray *pickerItems;
 	NSArray *filterControls;
 	
