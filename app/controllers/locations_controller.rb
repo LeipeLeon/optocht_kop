@@ -22,23 +22,34 @@ class LocationsController < ApplicationController
          :icon_anchor => GPoint.new(191/2,191/2),
          :info_window_anchor => GPoint.new(191/2,191/2)), "last_location")
     end
-    @map.icon_global_init(GIcon.new(:image => "/images/slider_ball.png",
-       :icon_anchor => GPoint.new(25/2,25/2),
-       :info_window_anchor => GPoint.new(25/2,25/2)), "img_route_point")
-
     last_location = Variable.new("last_location")
-    img_route_point = Variable.new("img_route_point")
+
+    # Maak alle icons voor accuracy
+    @accuracy_icons = {
+      0 => @map.icon_global_init(GIcon.new(:image => "/images/accuracy_icon_0.png",
+         :icon_anchor => GPoint.new(15,15),
+         :info_window_anchor => GPoint.new(15,15)), "img_route_point_0",
+         :icon_size => GSize.new(30,30))      
+    }
+    10.step(100,10) { |point|
+      @map.icon_global_init(GIcon.new(:image => "/images/acc_icon_#{point}.png",
+         :icon_anchor => GPoint.new(point/2,point/2),
+         :info_window_anchor => GPoint.new(point/2,point/2)), "img_route_point_#{point}",
+         :iconSize => GSize.new(point,point))
+      @accuracy_icons[point] = Variable.new("img_route_point_#{point}")
+    }
 
     @route_points = []
     markers1 = []
 
+    # alle meetpunten definieren
     @locations.each { |loc|
       @route_points << [loc.latitude, loc.longitude]
       markers1 << GMarker.new([loc.latitude, loc.longitude], 
-          :icon => loc.horizontal_accuracy.to_i > 50 ? last_location : img_route_point )#,
+          :icon => get_accuracy_icon(loc.horizontal_accuracy.to_i))
     }
     # laat registratiepunten allee nzien op level 16-17
-    managed_markers1 = ManagedMarker.new(markers1,14,17)
+    managed_markers1 = ManagedMarker.new(markers1,16,17)
 
     kop_optocht_info = "Kop Optocht"
     kop_optocht = GMarker.new([@locations.first.latitude, @locations.first.longitude], 
@@ -74,6 +85,11 @@ class LocationsController < ApplicationController
     # else
     #   render :text => "Wrong device!"
     # end
+  end
+
+private
+  def get_accuracy_icon(accuracy)
+    @accuracy_icons[((accuracy / 10)*10)]
   end
 
 end
