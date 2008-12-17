@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+	<!--meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/-->
+    <title><%= @page_title -%></title>
+	<%= yield :header %>
+</head>
+<body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
+	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
+	<%= yield %>
+</body>
+</html>
+<script language="javascript">
+	window.scrollTo(0, 1); // pan to the bottom, hides the location bar
+</script>
