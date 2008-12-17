@@ -5,11 +5,13 @@
     <meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 	<!--meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/-->
     <title><%= @page_title -%></title>
+	<%= stylesheet_link_tag 'optocht_mobile' %>
 	<%= yield :header %>
 </head>
 <body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
 	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
 	<%= yield %>
+	<div id="footnote"><%= t "footnote"%></div>
 </body>
 </html>
 <script language="javascript">
