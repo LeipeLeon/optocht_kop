@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+  before_filter :authenticate, :except => [:index, :create]
+
   # layout "iphone"
   def index
     @page_title = t('location.title')
@@ -100,6 +102,12 @@ class LocationsController < ApplicationController
 private
   def get_accuracy_icon(accuracy)
     @accuracy_icons[((accuracy / 10)*10)]
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "foo" && password == "bar"
+    end
   end
 
 end
