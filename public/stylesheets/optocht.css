@@ -1,0 +1,188 @@
+/* @override http://localhost:3000/stylesheets/optocht.css?1229519573 */
+
+* { font-family: Arial,sans-serif; }
+
+html {
+	background: url(/images/2003002-mockup_header_filler.jpg) repeat-x;
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: url(/images/2003002-mockup_header.jpg) no-repeat center top;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 160px;
+}
+.horbar {
+	color: black;
+	background-color: #FFFFE4;
+}
+.horbaritem {
+	float: left;
+	white-space: nowrap;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+.horbaritem a {
+	display: block;
+	text-decoration: none;
+}
+.horbaritem a:link {
+	color: #000000;
+	text-decoration: none;
+}
+.horbaritem a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+.horbaritem a:hover {
+	color: #ffffff;
+	background-color: #4b6983;
+	text-decoration: none;
+}
+.horbaritem a:active {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+.verbar	{
+	color: black;
+	background-color: #EDF2F5;
+}
+
+.submenu	{
+	position: absolute;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+}
+
+.subframe	{
+	position: relative;
+	display: block;
+	background-color: #EDF2F5;
+	border: 1px solid #64879d;
+}
+
+.item	{
+	padding: 3px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.separator	{
+	background-color: #ff0000;
+	border-top: 1px solid #9e9a91;
+	border-bottom: 1px solid #ffffff;
+	margin: 2px 1px 2px 1px;    
+	height: 0;
+	font-size: 1px;
+	line-height: 0
+}
+
+.item a	{
+	position: relative;
+	display: block;
+	text-decoration: none;
+}
+
+.item a:link	{
+	color: #000000;
+	text-decoration: none;
+}
+
+.item a:visited	{
+	color: #000000;
+	text-decoration: none;
+}
+
+.item a:hover	{
+	color: #ffffff;
+	background-color: #4b6983;
+	text-decoration: none;
+}
+
+.item a:active	{
+	color: #ff0000;
+	text-decoration: none;
+}
+
+.item .fwdarr	{
+	position: absolute;
+	top: 5px;
+	right: 7px;
+}
+
+body, p, td, tr {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #232323;
+}
+
+#credits,
+#credits a,
+#credits a:link,
+#credits a:hover {
+	font-size: 9px;
+	text-decoration: none;
+	color: #232323;
+}
+
+#pag_Title {
+	font-size: 16px;
+}
+
+#pag_Title a,
+#pag_Title a:link {
+	text-decoration: none;
+	color: #666666;
+}
+
+
+#news_list th {
+	font-size: 11px;
+}
+
+#news_list td {
+	font-size: 11px;
+}
+
+.lastedit
+{
+    	font-size: 9px;
+}
+
+h1 {font-size: 165%; letter-spacing: 3px; margin: 0; padding: 0; color: #6699CC; font-variant:bold; font-weight:bold; font-family:Arial; border-bottom:1px solid; }
+h2 {font-size: 135%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #690; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
+h3 {font-size: 115%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #c63; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
+h3.screenshot {font-size: 115%; margin: 0 0 0 0; font-variant:normal; font-weight:bold; font-family:Arial; border-bottom:1px solid; }
+h4 {font-size: 110%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #369; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
+
+h1.title {font: 48px Arial, Verdana, Helvetica, sans-serif; letter-spacing: 1px; margin: 0.66em 0 0.33em 3%; padding: 0; color: "#639CCE";}
+h3.pullquote {font: 24px Arial, Verdana, Helvetica, sans-serif; letter-spacing: 1px; margin: 0.66em 240px 0 3%; padding: 0; color: rgb(0%,0%,0%);}
+h3.blurb {font: 18px Arial, Verdana, Helvetica, sans-serif; letter-spacing: 1px; margin: 0.66em 240px 0 3%; padding: 0; color: rgb(0%,0%,0%);}
+
+p {line-height: 1.44; margin: 0.5em 0 1em 0;}
+li {line-height: 1.44; margin: 0 0 0 4em;}
+p#screenshots {line-height: 1.44; margin: 0 0 0 0;}
+p#screenshots-text {font: 7px Verdana, Arial, Helvetica, sans-serif; margin: 0; padding: 0; background: rgb(100%,100%,100%); color: black;}
+p.homepage {line-height: 1.44; margin: 0.5em 0 1em 0;}
+
+a:link {color: blue;}
+a:active {color: blue;}
+a:visited {color: blue;}
+a:hover {color: navy; background-color: #af0;}
+
+div.center div {
+	margin: 0px auto;
+}
+
+div.contentcol {
+	margin: 0px auto;
+	width: 800px;	
+}
