@@ -1,3 +1,5 @@
+/* @override http://localhost:3000/stylesheets/optocht.css?1229782924 */
+
 * { font-family: Arial,sans-serif; }
 
 html {
@@ -6,14 +8,14 @@ html {
 	padding: 0px;
 }
 body {
-	background: url(/images/2003002-mockup_header.jpg) no-repeat center top;
+	/*background: url(/images/2003002-mockup_header.jpg) no-repeat center top;*/
 	margin: 0px;
 	padding: 0px;
-	padding-top: 170px;
 }
 .horbar {
 	color: black;
 	background-color: #FFFFE4;
+	list-style-type: none;
 }
 .horbaritem {
 	float: left;
@@ -155,11 +157,20 @@ body, p, td, tr {
     	font-size: 9px;
 }
 
-h1 {font-size: 165%; letter-spacing: 3px; margin: 5px 0; padding: 0; font-variant:bold; font-weight:bold; font-family:Arial; border-bottom:1px #6699CC solid;}
-h2 {font-size: 135%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #690; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
-h3 {font-size: 115%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #c63; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
-h3.screenshot {font-size: 115%; margin: 0 0 0 0; font-variant:normal; font-weight:bold; font-family:Arial; border-bottom:1px solid; }
-h4 {font-size: 110%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #369; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
+h1, h2,h3,h4 {
+	letter-spacing: 3px; 
+	margin: 1.5em 0; 
+	padding: 0; 
+	font-variant:bold; 
+	font-weight:bold; 
+	font-family:Arial;
+}
+
+h1 {font-size: 165%; border-bottom:1px #69C solid;}
+h2 {font-size: 135%; border-bottom:1px #690 solid; }
+h3 {font-size: 115%; border-bottom:1px #C63 solid; }
+h4 {font-size: 110%; border-bottom:1px #369 solid; }
+h3.screenshot {margin: 0; }
 
 h1.title {font: 48px Arial, Verdana, Helvetica, sans-serif; letter-spacing: 1px; margin: 0.66em 0 0.33em 3%; padding: 0; color: "#639CCE";}
 h3.pullquote {font: 24px Arial, Verdana, Helvetica, sans-serif; letter-spacing: 1px; margin: 0.66em 240px 0 3%; padding: 0; color: rgb(0%,0%,0%);}
@@ -191,3 +202,45 @@ div.contentcol {
 	padding-top: .5em;
 	border-top:1px #6699CC solid;
 }
+
+div.title {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 170px;
+	display: block;
+}
+div.title a img {
+	display: block;
+	margin: auto;
+}
+
+div.title h1 {
+	display: none;
+}
+
+/* @group Menu*/
+.hor_menu {
+	list-style-type: none;
+	border: 1px transparent solid;
+	margin: 0px;
+	padding: 0px;
+}
+.hor_menu * {
+	margin: 0px;
+	padding: 0px;
+}
+.hor_menu li {
+}
+
+.hor_menu li a {
+	float: left;
+	margin-right: 1em;
+	background: #edeae2;
+	padding: .3em .5em;
+	border: 1px solid #d3d1cb;
+}
+.hor_menu li a:hover {
+	background: #d3d1cb;
+}
+/* @end */
