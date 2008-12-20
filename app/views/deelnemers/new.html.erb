@@ -1,0 +1,55 @@
+<h1><%= t("form.new") %> deelnemer</h1>
+
+<% form_for(@deelnemer) do |f| %>
+  <%= f.error_messages %>
+
+<table class="list">
+    <tr>
+		<th><%= f.label :name %>: </th>
+    	<td><%= f.text_field :name %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :site %>: </th>
+    	<td><%= f.text_field :site %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :contact_name %>: </th>
+    	<td><%= f.text_field :contact_name %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :contact_address %>: </th>
+    	<td><%= f.text_field :contact_address %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :contact_postal %>: </th>
+    	<td><%= f.text_field :contact_postal %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :contact_city %>: </th>
+    	<td><%= f.text_field :contact_city %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :contact_telephone %>: </th>
+    	<td><%= f.text_field :contact_telephone %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :contact_email %>: </th>
+    	<td><%= f.text_field :contact_email %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :pass %>: </th>
+    	<td><%= f.text_field :pass %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :accepted %>: </th>
+    	<td><%= f.check_box :accepted %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= f.submit t("form.create") %></td>
+	</tr>
+<% end %>
+</table>
+<%= link_to t("form.back"), deelnemers_path %>
+
+

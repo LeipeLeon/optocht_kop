@@ -11,6 +11,8 @@ en:
       back:    "Terug"
       list:    "Lijst"
       destroy: "Verwijder"
+  deelnemer:
+      title: "Deelnemers Optocht 2008"
   location:
       title: "Kop Optocht 2008"
       new: "Nieuwe Locatie"

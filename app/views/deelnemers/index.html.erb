@@ -1,0 +1,38 @@
+<h2><%= t("form.list") %> deelnemers</h2>
+
+<table class="list">
+  <tr>
+    <th>Name</th>
+    <th>Site</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Postal</th>
+    <th>City</th>
+    <th>Telephone</th>
+    <th>Email</th>
+    <th>Pass</th>
+    <th>Accepted</th>
+  </tr>
+
+<% for deelnemer in @deelnemers %>
+  <tr class="<%= cycle('odd','even')%>">
+    <td><%=h deelnemer.name %></td>
+    <td><%=h deelnemer.site %></td>
+    <td><%=h deelnemer.contact_name %></td>
+    <td><%=h deelnemer.contact_address %></td>
+    <td><%=h deelnemer.contact_postal %></td>
+    <td><%=h deelnemer.contact_city %></td>
+    <td><%=h deelnemer.contact_telephone %></td>
+    <td><%=h deelnemer.contact_email %></td>
+    <td><%=h deelnemer.pass %></td>
+    <td><%=h deelnemer.accepted %></td>
+    <td><%= link_to t("form.show"), deelnemer %></td>
+    <td><%= link_to t("form.edit"), edit_deelnemer_path(deelnemer) %></td>
+    <td><%= link_to t("form.destroy"), deelnemer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t("form.new") + ' deelnemer', new_deelnemer_path %>

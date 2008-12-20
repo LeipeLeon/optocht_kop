@@ -1,0 +1,45 @@
+<table class="list">
+	<tr>
+		<th>Name:</th>
+		<td><%=h @deelnemer.name %></td>
+	</tr>
+	<tr>
+		<th>Site:</th>
+		<td><%=h @deelnemer.site %></td>
+	</tr>
+	<tr>
+		<th>Contact name:</th>
+		<td><%=h @deelnemer.contact_name %></td>
+	</tr>
+	<tr>
+		<th>Contact address:</th>
+		<td><%=h @deelnemer.contact_address %></td>
+	</tr>
+	<tr>
+		<th>Contact postal:</th>
+		<td><%=h @deelnemer.contact_postal %></td>
+	</tr>
+	<tr>
+		<th>Contact city:</th>
+		<td><%=h @deelnemer.contact_city %></td>
+	</tr>
+	<tr>
+		<th>Contact telephone:</th>
+		<td><%=h @deelnemer.contact_telephone %></td>
+	</tr>
+	<tr>
+		<th>Contact email:</th>
+		<td><%=h @deelnemer.contact_email %></td>
+	</tr>
+	<tr>
+		<th>Pass:</th>
+		<td><%=h @deelnemer.pass %></td>
+	</tr>
+	<tr>
+		<th>Accepted:</th>
+		<td><%=h @deelnemer.accepted %></td>
+	</tr>
+</table>
+
+<%= link_to t("form.edit"), edit_deelnemer_path(@deelnemer) %> |
+<%= link_to t("form.back"), deelnemers_path %>
