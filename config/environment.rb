@@ -74,3 +74,10 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
   # config.action_controller.relative_url_root="/"
 end
+
+
+Comatose.configure do |config|
+  # Sets the text in the Admin UI's title area
+  config.admin_title = "Site Content"
+  config.admin_sub_title = "Content for the rest of us..."
+end
