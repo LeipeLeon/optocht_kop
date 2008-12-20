@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
 
   # layout "iphone"
   def index
-    @page_title = t('location.title')
+    @page.title = t('location.title')
     @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC")#, :limit => '50'.reverse
     # 
     # Create a new map object, also defining the div ("map") 
@@ -80,6 +80,7 @@ class LocationsController < ApplicationController
   end
   
   def new
+    @page.title = t('location.new')
     @location = Location.new
   end
   
@@ -109,7 +110,7 @@ private
       username == "foo" && password == "bar"
     end
   end
-
+  
 end
 
   

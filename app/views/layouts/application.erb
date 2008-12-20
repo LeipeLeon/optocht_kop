@@ -6,12 +6,17 @@
     <meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 	<%= stylesheet_link_tag 'scaffold', 'optocht' %>
-    <title><%= @page_title -%></title>
+    <title><%= @page.title -%></title>
 	<%= yield :header %>
 </head>
 <body>
+	<div class="title">
+		<a href="/"><img src="/images/2003002-mockup_header.jpg" /></a>
+		<h1>Optocht Pampus - Lollebroek</h1>
+	</div>
 	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
 <div class="contentcol">
+	<h2 style="text-align:center;"><%= @page.title %></h2>
     <%= yield %>
 	<div id="footnote"><%= t "footnote"%></div>
 </div>

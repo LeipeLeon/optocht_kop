@@ -10,6 +10,7 @@
 </head>
 <body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
 	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
+	<h2 style="text-align:center;"><%= @page.title %></h2>
 	<%= yield %>
 	<div id="footnote"><%= t "footnote"%></div>
 </body>

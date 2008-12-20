@@ -15,8 +15,9 @@ class ApplicationController < ActionController::Base
   exempt_from_layout('iphone_html.erb')  
     
   before_filter :adjust_format_for_iphone  
-    
-  protected  
+  before_filter :set_page_vars, :except => [:create, :destroy]
+
+protected  
   def iphone_user_agent?
     request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
   end
@@ -25,6 +26,10 @@ class ApplicationController < ActionController::Base
     request.format = :iphone if iphone_user_agent?
   end
     
+  def set_page_vars
+    @page = ComatosePage.new
+  end
+
   # def check_iphone  
   #   if iphone_user_agent?  
   #     request.parameters[:format] = 'iphone_html'  
