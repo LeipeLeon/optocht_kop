@@ -2,7 +2,19 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  form:
+      create: "Maak"
+      edit:   "Bewerk"
+      save:   "Bewaar"
+      show:   "Bekijk"
   location:
       title: "Kop Optocht 2008"
+      new: "Nieuwe Locatie"
+      lat: "Hoogtegraad"
+      lon: "Breedtegraad"
+      hor: "Horizontale marge"	
+      ver: "Verticale marge"
+      alt: "Elevatie"	
+      
   footnote: "&copy;2008 <a href=\"http://beriedata.nl\">BerieData.nl</a> i.o.v. <a href=\"http://pampus-lollebroek.nl\">Optochtcommissie De Lollebroek Pampus</a>"
+  deelnemers:

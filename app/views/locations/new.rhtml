@@ -1,27 +1,15 @@
-<h1><%= t("deelnemers.new")%></h1>
+<h1><%= t("location.new")%></h1>
 
 <% form_for(@location) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.text_field :latitude, :value => '52.25' %>
-  </p>
-  <p>
-    <%= f.text_field :longitude, :value => '6.15' %>
-  </p>
-  <p>
-    <%= f.text_field :horizontal_accuracy, :value => '47.1234' %>
-  </p>
-  <p>
-    <%= f.text_field :vertical_accuracy, :value => '70.123421' %>
-  </p>
-  <p>
-    <%= f.text_field :altitude, :value => '79.3243214' %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
+<table>
+  <tr><td><%= t("location.lat") %>:</td><td><%= f.text_field :latitude, :value => '52.25' %></td></tr>
+  <tr><td><%= t("location.lon") %>:</td><td><%= f.text_field :longitude, :value => '6.15' %></td></tr>
+  <tr><td><%= t("location.hor") %>:</td><td><%= f.text_field :horizontal_accuracy, :value => '47.1234' %></td></tr>
+  <tr><td><%= t("location.ver") %>:</td><td><%= f.text_field :vertical_accuracy, :value => '70.123421' %></td></tr>
+  <tr><td><%= t("location.alt") %>:</td><td><%= f.text_field :altitude, :value => '79.3243214' %></td></tr>
+  <tr><td>      </td><td><%= f.submit t("form.create") %></td></tr>
+</table>
   </p>
 
 <% end %>
-
-/lat=52.253466&long=6.159382&z=79.000000&ha=47.421634&va=70.281001
