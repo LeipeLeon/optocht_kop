@@ -1,0 +1,23 @@
+--- 
+slug: about
+filter_type: Textile
+body: Welkom!
+title: STUB
+children: 
+- slug: site
+  filter_type: Textile
+  body: This website.
+  title: Homepage
+  children: 
+  - slug: about
+    filter_type: Textile
+    body: This Website
+    title: About
+    keywords: ""
+  keywords: ""
+- slug: "404"
+  filter_type: Textile
+  body: Deze pagina bestaat niet!
+  title: "404"
+  keywords: ""
+keywords: ""

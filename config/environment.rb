@@ -80,4 +80,5 @@ Comatose.configure do |config|
   # Sets the text in the Admin UI's title area
   config.admin_title = "Site Content"
   config.admin_sub_title = "Content for the rest of us..."
+  config.default_tree_level = 5
 end
