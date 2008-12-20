@@ -9,7 +9,7 @@ body {
 	background: url(/images/2003002-mockup_header.jpg) no-repeat center top;
 	margin: 0px;
 	padding: 0px;
-	padding-top: 160px;
+	padding-top: 170px;
 }
 .horbar {
 	color: black;
@@ -155,7 +155,7 @@ body, p, td, tr {
     	font-size: 9px;
 }
 
-h1 {font-size: 165%; letter-spacing: 3px; margin: 0; padding: 0; color: #6699CC; font-variant:bold; font-weight:bold; font-family:Arial; border-bottom:1px solid; }
+h1 {font-size: 165%; letter-spacing: 3px; margin: 5px 0; padding: 0; font-variant:bold; font-weight:bold; font-family:Arial; border-bottom:1px #6699CC solid;}
 h2 {font-size: 135%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #690; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
 h3 {font-size: 115%; letter-spacing: 3px; margin: 1.5em 0 0 0; padding: 0; color: #c63; font-variant:bold; font-weight:normal; font-family:Arial; border-bottom:1px solid; }
 h3.screenshot {font-size: 115%; margin: 0 0 0 0; font-variant:normal; font-weight:bold; font-family:Arial; border-bottom:1px solid; }
@@ -183,4 +183,9 @@ div.center div {
 div.contentcol {
 	margin: 0px auto;
 	width: 800px;	
+}
+
+#footnote {
+	letter-spacing: 0.1em;
+	margin-bottom: 1em;
 }
