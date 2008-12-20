@@ -3,10 +3,14 @@
 
 en:
   form:
-      create: "Maak"
-      edit:   "Bewerk"
-      save:   "Bewaar"
-      show:   "Bekijk"
+      create:  "Maak"
+      edit:    "Bewerk"
+      save:    "Bewaar"
+      show:    "Bekijk"
+      new:     "Nieuwe"
+      back:    "Terug"
+      list:    "Lijst"
+      destroy: "Verwijder"
   location:
       title: "Kop Optocht 2008"
       new: "Nieuwe Locatie"
