@@ -1,0 +1,11 @@
+<table class="list">
+<% for attribute in attributes -%>
+	<tr>
+		<th><%= attribute.column.human_name %>:</th>
+		<td><%%=h @<%= singular_name %>.<%= attribute.name %> %></td>
+	</tr>
+<% end -%>
+</table>
+
+<%%= link_to t("form.edit"), edit_<%= singular_name %>_path(@<%= singular_name %>) %> |
+<%%= link_to t("form.back"), <%= plural_name %>_path %>
