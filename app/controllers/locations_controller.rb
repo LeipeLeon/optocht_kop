@@ -1,84 +1,70 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate, :except => [:index, :create]
+  before_filter :authenticate, :except => [:index, :create, :last_locations]
 
   # layout "iphone"
   def index
     @page.title = t('location.title')
     @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC")#, :limit => '50'.reverse
-    # 
-    # Create a new map object, also defining the div ("map") 
-    # where the map will be rendered in the view
-    @map = GMap.new("map")
-    # Use the larger pan/zoom control but disable the map type
-    # selector
-    @map.control_init(:large_map => true, :map_type => true)
-    # Center the map on specific coordinates and focus in fairly
-    # closely
-    @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], 17)
-    # create the icon : "/images/knob_big.png"
-    if @locations.first.horizontal_accuracy.to_i < 100
-      @map.icon_global_init(GIcon.new(:image => "/images/knob_small.png",
-         :icon_anchor => GPoint.new(78/2,78/2),
-         :info_window_anchor => GPoint.new(78/2,78/2)), "last_location")
-    else
-      @map.icon_global_init(GIcon.new(:image => "/images/knob_big.png",
-         :icon_anchor => GPoint.new(191/2,191/2),
-         :info_window_anchor => GPoint.new(191/2,191/2)), "last_location")
-    end
-    last_location = Variable.new("last_location")
 
-    kop_optocht_info = "Kop Optocht"
-    kop_optocht = GMarker.new([@locations.first.latitude, @locations.first.longitude], 
-          :icon => last_location )#,
-          # :title => 'Deventer', 
-          # :info_window => "#{kop_optocht_info}")
-
-
-    @map.overlay_init(kop_optocht)
-    
-    respond_to do |format|  
-      format.html do # index.html.erb  
-        # Maak alle icons voor accuracy
-        @accuracy_icons = {
-          0 => @map.icon_global_init(GIcon.new(:image => "/images/accuracy_icon_0.png",
-             :icon_anchor => GPoint.new(15,15),
-             :info_window_anchor => GPoint.new(15,15)), "img_route_point_0",
-             :icon_size => GSize.new(30,30))      
-        }
-        10.step(100,10) { |point|
-          @map.icon_global_init(GIcon.new(:image => "/images/acc_icon_#{point}.png",
-             :icon_anchor => GPoint.new(point/2,point/2),
-             :info_window_anchor => GPoint.new(point/2,point/2)), "img_route_point_#{point}",
-             :iconSize => GSize.new(point,point))
-          @accuracy_icons[point] = Variable.new("img_route_point_#{point}")
-        }
-
-        @route_points = []
-        markers1 = []
-
-        # alle meetpunten definieren
-        @locations.each { |loc|
-          @route_points << [loc.latitude, loc.longitude]
-          markers1 << GMarker.new([loc.latitude, loc.longitude], 
-              :icon => get_accuracy_icon(loc.horizontal_accuracy.to_i))
-        }
-        # laat registratiepunten allee nzien op level 16-17
-        managed_markers1 = ManagedMarker.new(markers1,16,17)
-
-        route = GPolyline.new(@route_points,"#ff0000",5,1.0)
-        route_2 = GPolyline.new(@route_points,"#ffcc00",3,0.8)
-          
-        mm = GMarkerManager.new(@map,:managed_markers => [managed_markers1])
-        @map.declare_init(mm, "mgr")
-        @map.overlay_init(route)
-        @map.overlay_init(route_2)
-        
+    respond_to do |format|
+      format.iphone do # index.iphone.erb
+        get_map
+        set_zoom
+        get_head
       end
-      format.iphone  # index.iphone.erb
+      format.html do # index.js.erb  
+        get_map
+        set_zoom
+        get_head
+        # get_route
+        # get_accuracy
+      end
+      format.js do # index.html.erb  
+        get_map
+        set_zoom
+        get_head
+        # get_route
+        # get_accuracy
+      end
     end  
 
   end
-  
+
+  def last_locations
+    @map = Variable.new("map")
+    # @map = GMap.new("map")
+
+    # params[:last_update]
+    @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC")#, :limit => '50'.reverse
+    head  = get_head('add')
+    route = get_route('add')
+
+    respond_to do |format|
+      format.js do# index.html.erb  
+        render :update do |page|
+          page << @map.clear_overlays
+          page << head
+          page << route
+        end
+        # get_route
+        # render :js => :index
+        # get_accuracy
+      end
+    end
+    # render :action => :index
+  end
+  # def show
+  #   respond_to do |format|
+  #     format.html do # show.html.erb  
+  #       # data = { :foo => 'bar', :etc => 'rez' }
+  #       get_head
+  #       get_route
+  #       get_accuracy
+  #       # render :text => data.to_json
+  #     end
+  #   end  
+  # end
+
   def new
     @page.title = t('location.new')
     @location = Location.new
@@ -105,12 +91,96 @@ private
     @accuracy_icons[((accuracy / 10)*10)]
   end
 
+  def get_accuracy
+    @accuracy = "<p>Precisie: +/- <%= @locations.first.horizontal_accuracy.to_i %> meter, <%= distance_of_time_in_dutch(@locations.first.created_at, Time.now, true) %> geleden</p>"
+  end
+
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
       username == "foo" && password == "bar"
     end
   end
   
+  def get_map
+    # Create a new map object, also defining the div ("map") 
+    # where the map will be rendered in the view
+    @map = GMap.new("map")
+    # Use the larger pan/zoom control but disable the map type
+    # selector
+    @map.control_init(:large_map => true, :map_type => true)    
+  end
+  
+  def get_head(type= 'init')
+    # create the icon : "/images/knob_big.png"
+    last_location = Variable.new("last_location")
+    if @locations.first.horizontal_accuracy.to_i < 100
+      @map.icon_global_init(GIcon.new(:image => "/images/knob_small.png",
+         :icon_anchor => GPoint.new(78/2,78/2),
+         :info_window_anchor => GPoint.new(78/2,78/2)), "last_location")
+    else
+      @map.icon_global_init(GIcon.new(:image => "/images/knob_big.png",
+         :icon_anchor => GPoint.new(191/2,191/2),
+         :info_window_anchor => GPoint.new(191/2,191/2)), "last_location")
+    end
+
+    kop_optocht_info = "Kop Optocht"
+    kop_optocht = GMarker.new([@locations.first.latitude, @locations.first.longitude], 
+          :icon => last_location )
+
+    case type 
+    when 'init': @map.overlay_init(kop_optocht)
+    when 'add':  @map.add_overlay(kop_optocht)
+    else         @map.overlay_init(kop_optocht)
+    end
+  end
+
+  def set_zoom # Center the map on specific coordinates and focus in fairly closely
+    @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], 17)
+  end
+  
+  def get_route(type = 'init')
+    # Maak alle icons voor accuracy
+    @accuracy_icons = {
+      0 => @map.icon_global_init(GIcon.new(:image => "/images/accuracy_icon_0.png",
+         :icon_anchor => GPoint.new(15,15),
+         :info_window_anchor => GPoint.new(15,15)), "img_route_point_0",
+         :icon_size => GSize.new(30,30))      
+    }
+    10.step(100,10) { |point|
+      @map.icon_global_init(GIcon.new(:image => "/images/acc_icon_#{point}.png",
+         :icon_anchor => GPoint.new(point/2,point/2),
+         :info_window_anchor => GPoint.new(point/2,point/2)), "img_route_point_#{point}",
+         :iconSize => GSize.new(point,point))
+      @accuracy_icons[point] = Variable.new("img_route_point_#{point}")
+    }
+
+    @route_points = []
+    markers1 = []
+
+    # alle meetpunten definieren
+    @locations.each { |loc|
+      @route_points << [loc.latitude, loc.longitude]
+      markers1 << GMarker.new([loc.latitude, loc.longitude], 
+          :icon => get_accuracy_icon(loc.horizontal_accuracy.to_i))
+    }
+    # laat registratiepunten allee nzien op level 16-17
+    managed_markers1 = ManagedMarker.new(markers1,16,17)
+
+    route = GPolyline.new(@route_points,"#ff0000",5,1.0)
+    route_2 = GPolyline.new(@route_points,"#ffcc00",3,0.8)
+      
+    mm = GMarkerManager.new(@map,:managed_markers => [managed_markers1])
+    case type 
+    when 'add':  
+      @map.add_declare(mm, "mgr")
+      @map.add_overlay(route)
+      @map.add_overlay(route_2)
+    else         
+      @map.declare_init(mm, "mgr")
+      @map.overlay_init(route)
+      @map.overlay_init(route_2)
+    end
+  end
 end
 
   
