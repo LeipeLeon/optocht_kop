@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
     # Center the map on specific coordinates and focus in fairly
     # closely
     @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], 17)
-    # create the pzza icon : "/images/knob_big.png"
+    # create the icon : "/images/knob_big.png"
     if @locations.first.horizontal_accuracy.to_i < 100
       @map.icon_global_init(GIcon.new(:image => "/images/knob_small.png",
          :icon_anchor => GPoint.new(78/2,78/2),
@@ -85,7 +85,7 @@ class LocationsController < ApplicationController
   
   def create
     logger.debug request.env["HTTP_USER_AGENT"]
-    # if request.env["HTTP_USER_AGENT"] == "beriedataphone"
+    if request.env["HTTP_USER_AGENT"] == "beriedataphone"
       @location = Location.new(params[:location])
 
       if @location.save
@@ -94,9 +94,9 @@ class LocationsController < ApplicationController
       else
         flash[:notice] = 'Error on creation.'
       end
-    # else
-    #   render :text => "Wrong device!"
-    # end
+    else
+      render :text => "Wrong device!"
+    end
   end
 
 private
