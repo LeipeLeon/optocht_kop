@@ -34,4 +34,14 @@ namespace :deploy do
     desc "#{t} task is a no-op with mod_rails"
     task t, :roles => :app do ; end
   end
+  
+  [:import, :export].each do |t|
+    desc "#{t} content for comatose, do a deploy first"
+    task ('coma_'+t.to_s).to_sym, :roles => :app do 
+      rake = fetch(:rake, "rake")
+      rails_env = fetch(:rails_env, "production")
+
+      run "cd #{current_release}; #{rake} RAILS_ENV=#{rails_env} comatose:data:#{t}"
+    end
+  end
 end
