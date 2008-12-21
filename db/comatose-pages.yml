@@ -4,16 +4,24 @@ filter_type: Textile
 body: Welkom!
 title: STUB
 children: 
-- slug: site
+- slug: about
   filter_type: Textile
-  body: This website.
-  title: Homepage
-  children: 
-  - slug: about
-    filter_type: Textile
-    body: This Website
-    title: About
-    keywords: ""
+  body: "Deze website is een product van \"BerieData.nl\":http://beriedata.nl ontwikkeld in opdracht van \r\n\
+    Optochtcommissie \"De Lollebroek-Pampus\":http://pampus-lollebroek.nl\r\n\
+    \r\n\
+    Gebruikte technologie\xC3\xABn:\r\n\
+    * Ruby On Rails\r\n\
+    * iPhone GPS met custom software\r\n\
+    * Google Maps\r\n\
+    \r\n\
+    h3. Hoe werkt het?\r\n\
+    \r\n\
+    Doormiddel van de GPS functie in de iPhone wordt er elke keer als de locatie verandert een locatie update naar de webserver gestuurd. \r\n\
+    \r\n\
+    h3. Kan ik mijn positie sturen?\r\n\
+    \r\n\
+    Helaas nu nog niet."
+  title: About
   keywords: ""
 - slug: "404"
   filter_type: Textile
