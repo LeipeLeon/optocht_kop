@@ -4,29 +4,28 @@ class LocationsController < ApplicationController
   # layout "iphone"
   def index
     @page.title = t('location.title')
-    @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC")#, :limit => '50'.reverse
+    @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
+
+    get_map
+    set_zoom
+    get_head
 
     respond_to do |format|
-      format.iphone do # index.iphone.erb
-        get_map
-        set_zoom
-        get_head
-      end
+      format.iphone # index.iphone.erb
       format.html do # index.js.erb  
-        get_map
-        set_zoom
-        get_head
-        # get_route
+        get_route
         # get_accuracy
       end
       format.js do # index.html.erb  
-        get_map
-        set_zoom
-        get_head
-        # get_route
+        get_route
         # get_accuracy
       end
-    end  
+      if params[:full]
+        render :format => format, :layout => 'full'
+      else
+        render :format => format
+      end
+    end
 
   end
 
@@ -35,9 +34,10 @@ class LocationsController < ApplicationController
     # @map = GMap.new("map")
 
     # params[:last_update]
-    @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC")#, :limit => '50'.reverse
+    @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
     head  = get_head('add')
     route = get_route('add')
+    center = set_zoom('add')
 
     respond_to do |format|
       format.js do# index.html.erb  
@@ -45,25 +45,12 @@ class LocationsController < ApplicationController
           page << @map.clear_overlays
           page << head
           page << route
+          page << center
         end
-        # get_route
-        # render :js => :index
         # get_accuracy
       end
     end
-    # render :action => :index
   end
-  # def show
-  #   respond_to do |format|
-  #     format.html do # show.html.erb  
-  #       # data = { :foo => 'bar', :etc => 'rez' }
-  #       get_head
-  #       get_route
-  #       get_accuracy
-  #       # render :text => data.to_json
-  #     end
-  #   end  
-  # end
 
   def new
     @page.title = t('location.new')
@@ -72,7 +59,7 @@ class LocationsController < ApplicationController
   
   def create
     logger.debug request.env["HTTP_USER_AGENT"]
-    if request.env["HTTP_USER_AGENT"] == "beriedataphone"
+    # if request.env["HTTP_USER_AGENT"] == "beriedataphone"
       @location = Location.new(params[:location])
 
       if @location.save
@@ -81,9 +68,9 @@ class LocationsController < ApplicationController
       else
         flash[:notice] = 'Error on creation.'
       end
-    else
-      render :text => "Wrong device!"
-    end
+    # else
+    #   render :text => "Wrong device!"
+    # end
   end
 
 private
@@ -134,8 +121,11 @@ private
     end
   end
 
-  def set_zoom # Center the map on specific coordinates and focus in fairly closely
-    @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], 17)
+  def set_zoom(type = 'init') # Center the map on specific coordinates and focus in fairly closely
+    case type 
+    when 'add':  @map.set_center(GLatLng.new([@locations.first.latitude, @locations.first.longitude]))
+    else         @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], 17)
+    end
   end
   
   def get_route(type = 'init')
@@ -170,17 +160,17 @@ private
     route_2 = GPolyline.new(@route_points,"#ffcc00",3,0.8)
       
     mm = GMarkerManager.new(@map,:managed_markers => [managed_markers1])
+    ret = Array.new()
     case type 
     when 'add':  
-      @map.add_declare(mm, "mgr")
-      @map.add_overlay(route)
-      @map.add_overlay(route_2)
+      # ret << @map.declare(mm, "mgr")
+      ret << @map.add_overlay(route)
+      ret << @map.add_overlay(route_2)
     else         
-      @map.declare_init(mm, "mgr")
-      @map.overlay_init(route)
-      @map.overlay_init(route_2)
+      # ret << @map.declare_init(mm, "mgr")
+      ret << @map.overlay_init(route)
+      ret << @map.overlay_init(route_2)
     end
+    ret
   end
 end
-
-  
