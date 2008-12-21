@@ -20,11 +20,11 @@ class LocationsController < ApplicationController
         get_route
         # get_accuracy
       end
-      if params[:full]
-        render :format => format, :layout => 'full'
-      else
-        render :format => format
-      end
+      # if params[:full]
+      #   render :format => format, :layout => 'full'
+      # else
+      #   render :format => format
+      # end
     end
 
   end
