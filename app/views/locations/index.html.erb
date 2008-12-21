@@ -2,9 +2,10 @@
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
 	<%= @map.to_html(:full => params[:full]) %>
 <% end %>
+
 <%= periodically_call_remote(
 	:success => "eval('(' + request + ');');", 
-	:frequency => 6,
+	:frequency => 60,
 	:url => {
 		:action => :last_locations, 
 		:format => :js
@@ -12,7 +13,7 @@
 <%= link_to_remote( 'Reload', 
 	:success => "eval('(' + request + ');');", 
 	:url => {
-		:action => :index, 
+		:action => :last_locations, 
 		:format => :js
 	} ) %>
 
