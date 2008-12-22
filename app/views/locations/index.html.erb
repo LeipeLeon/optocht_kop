@@ -1,6 +1,25 @@
 <% content_for("header") do %>
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
-	<%= @map.to_html %>
+	<%= @map.to_html(:full => params[:full]) %>
 <% end %>
-<%= @map.div(:width => 800, :height => 600) %>
-<p>Precisie: +/- <%= @locations.first.horizontal_accuracy.to_i %> meter, <%= distance_of_time_in_dutch(@locations.first.created_at, Time.now, true) %> geleden</p>
+
+<%= periodically_call_remote(
+	:success => "eval('(' + request + ');');", 
+	:frequency => 60,
+	:url => {
+		:action => :last_locations, 
+		:format => :js
+	} ) %>
+<%= link_to_remote( 'Reload', 
+	:success => "eval('(' + request + ');');", 
+	:url => {
+		:action => :last_locations, 
+		:format => :js
+	} ) %>
+
+<%= @map.div(:width => 800, :height => 300) %>
+<!--
+<script language="JavaScript">
+<%= remote_function(:success => "eval('(' + request + ')');", :url => {:action => :index, :format => :js} ) %>;
+</script>
+-->
