@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate, :except => [:index, :create, :last_locations]
+  before_filter :authenticate, :except => [:index, :create, :last_locations, :just_map, :create_thumb]
 
   # layout "iphone"
   def index
@@ -26,7 +26,6 @@ class LocationsController < ApplicationController
       #   render :format => format
       # end
     end
-
   end
 
   def last_locations
@@ -52,6 +51,17 @@ class LocationsController < ApplicationController
     end
   end
 
+  def just_map
+    @page.title = t('location.title')
+    @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
+
+    get_map(false,false)
+    set_zoom('init', 16)
+    get_head
+    get_route
+
+  end
+
   def new
     @page.title = t('location.new')
     @location = Location.new
@@ -73,6 +83,22 @@ class LocationsController < ApplicationController
     # end
   end
 
+  def create_thumb
+    url = 'http://webserver.vda-groep.nl/locations/just_map.html'
+    t = Nailer.new(url)
+
+    if t.ok?
+      t.wait_until_ready
+      t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out1.jpg", :small)
+      t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out2.jpg", :medium)
+      t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out3.jpg", :medium2)
+      t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out4.jpg", :large)
+      render :text => "Thumbnails saved /thumb/out1.jpg"
+    else
+      render :text => "Error"
+    end    
+  end
+
 private
   def get_accuracy_icon(accuracy)
     @accuracy_icons[((accuracy / 10)*10)]
@@ -88,13 +114,13 @@ private
     end
   end
   
-  def get_map
+  def get_map(large_map = true, map_type = true)
     # Create a new map object, also defining the div ("map") 
     # where the map will be rendered in the view
     @map = GMap.new("map")
     # Use the larger pan/zoom control but disable the map type
     # selector
-    @map.control_init(:large_map => true, :map_type => true)    
+    @map.control_init(:large_map => large_map, :map_type => map_type)    
   end
   
   def get_head(type= 'init')
@@ -121,10 +147,10 @@ private
     end
   end
 
-  def set_zoom(type = 'init') # Center the map on specific coordinates and focus in fairly closely
+  def set_zoom(type = 'init', level = 17) # Center the map on specific coordinates and focus in fairly closely
     case type 
     when 'add':  @map.set_center(GLatLng.new([@locations.first.latitude, @locations.first.longitude]))
-    else         @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], 17)
+    else         @map.center_zoom_init([@locations.first.latitude, @locations.first.longitude], level)
     end
   end
   
