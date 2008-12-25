@@ -20,6 +20,8 @@ set :scm_verbose, :true
 # set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 
+set :chmod766, %w(public/thumb)
+
 role :app, "web"
 role :web, "web"
 role :db,  "web", :primary => true
@@ -43,5 +45,12 @@ namespace :deploy do
 
       run "cd #{current_release}; #{rake} RAILS_ENV=#{rails_env} comatose:data:#{t}"
     end
+  end
+
+  desc "Set the proper permissions for directories and files"
+  task :before_restart do
+    run(chmod766.collect do |item|
+      "chmod 766 #{current_path}/#{item}"
+    end.join(" && "))
   end
 end
