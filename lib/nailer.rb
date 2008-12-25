@@ -31,7 +31,12 @@ class Nailer
   end
 
   def retrieve_to_file(filename, size = :small)
-    File.new(filename, 'w+').write(retrieve(size.to_s))
+    # File.new(filename, 'w+').write(retrieve(size.to_s))
+    File.open(filename, 'wb+') do |file|
+      file.write(retrieve(size.to_s))
+      file.close
+      file
+    end
   end
 
   def ready?
