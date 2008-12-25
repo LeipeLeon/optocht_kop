@@ -85,7 +85,7 @@ class LocationsController < ApplicationController
 
   def create_thumb
     url = 'http://webserver.vda-groep.nl/locations/just_map.html'
-    t = Nailer.new(url)
+    t = Nailer.new(url, 320, 300)
 
     if t.ok?
       t.wait_until_ready
