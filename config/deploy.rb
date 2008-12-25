@@ -20,7 +20,7 @@ set :scm_verbose, :true
 # set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 
-set :chmod766, %w(public/thumb)
+set :chmod777, %w(public/thumb)
 
 role :app, "web"
 role :web, "web"
@@ -49,8 +49,8 @@ namespace :deploy do
 
   desc "Set the proper permissions for directories and files"
   task :before_restart do
-    run(chmod766.collect do |item|
-      "chmod 766 #{current_path}/#{item}"
+    run(chmod777.collect do |item|
+      "chmod 777 #{current_path}/#{item}"
     end.join(" && "))
   end
 end
