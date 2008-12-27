@@ -1,8 +1,14 @@
 --- 
 slug: about
 filter_type: Textile
-body: Welkom!
-title: STUB
+body: |
+  Welkom!
+  
+  * "Plaatje":/thumb/out3.jpg
+  * "Live":/locations/live (+500Kb)
+  
+
+title: Optocht Pampus-Lollebroek
 children: 
 - slug: about
   filter_type: Textile
