@@ -16,8 +16,10 @@
 		:action => :last_locations, 
 		:format => :js
 	} ) %>
+<br/>
+<br/>
 
-<%= @map.div(:width => 800, :height => 300) %>
+<%= @map.div(:width => 800, :height => 500) %>
 <!--
 <script language="JavaScript">
 <%= remote_function(:success => "eval('(' + request + ')');", :url => {:action => :index, :format => :js} ) %>;
