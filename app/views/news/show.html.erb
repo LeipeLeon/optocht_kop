@@ -1,0 +1,13 @@
+<table class="list">
+	<tr>
+		<th>Title:</th>
+		<td><%=h @news.title %></td>
+	</tr>
+	<tr>
+		<th>Body:</th>
+		<td><%=h @news.body %></td>
+	</tr>
+</table>
+
+<%= link_to t("form.edit"), edit_news_path(@news) %> |
+<%= link_to t("form.back"), news_path %>
