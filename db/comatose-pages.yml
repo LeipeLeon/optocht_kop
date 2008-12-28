@@ -1,13 +1,17 @@
 --- 
 slug: about
 filter_type: Textile
-body: |
-  Welkom!
+body: |-
+  h2. Welkom!
   
-  * "Plaatje":/thumb/out3.jpg
-  * "Live":/locations/live (+500Kb)
+  * "Plaatje":/thumb/out3.jpg (+/- 12Kb)
+  * "Live":/locations/ (+600Kb)
   
-
+  h3. Laatse Nieuws
+  
+  {% for headline in news.latest_headlines %}
+  * {{ headline }}
+  {% endfor %}
 title: Optocht Pampus-Lollebroek
 children: 
 - slug: about
