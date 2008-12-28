@@ -86,7 +86,7 @@ end
 Comatose.define_drop 'news' do
   def latest_headlines
     # Location.find(:all, :conditions=>['created_on > ?', 2.weeks.ago]).collect {|n| n.title }
-    News.find(:all, :limit => 5).collect {|n| "<a href=\"/news/#{n.id}\">#{n.title}</a>" }
+    Feed.find(:all, :limit => 5).collect {|n| "<a href=\"/feeds/#{n.id}\">#{n.title}</a>" }
   end
 end
 

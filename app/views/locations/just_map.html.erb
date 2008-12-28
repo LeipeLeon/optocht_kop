@@ -18,5 +18,6 @@
 </head>
 <body>
 <%= @map.div(:width => 320, :height => 300) %>
+<p style="text-align: center">Precisie: +/- <%= @locations.first.horizontal_accuracy.to_i %> meter, <%= distance_of_time_in_dutch(@locations.first.created_at, Time.now, true) %> geleden</p>
 </body>
 </html>

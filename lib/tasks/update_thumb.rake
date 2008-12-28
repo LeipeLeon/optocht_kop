@@ -7,7 +7,7 @@ task :thumbs => :environment do
   
   # Haal nieuw plaatje op
   url = 'http://webserver.vda-groep.nl/locations/just_map.html'
-  t = Nailer.new(url, 320, 300)
+  t = Nailer.new(url, 320, 350)
 
   if t.ok?
     t.wait_until_ready

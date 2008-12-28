@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :news
+  map.resources :feeds
 
   map.resources :deelnemers
   # map.resources :locations
