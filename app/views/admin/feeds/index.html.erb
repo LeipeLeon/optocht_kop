@@ -1,0 +1,22 @@
+<h1><%= t("form.list") %> feeds</h1>
+
+<table class="list">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+<% for feed in @feeds %>
+  <tr class="<%= cycle('odd','even')%>">
+    <td><%=h feed.title %></td>
+    <td><%=h feed.body %></td>
+    <td><%= link_to t("form.show"), admin_feed_url(feed) %></td>
+    <td><%= link_to t("form.edit"), edit_admin_feed_path(feed) %></td>
+    <td><%= link_to t("form.destroy"), admin_feed_url(feed), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t("form.new") + ' feed', new_admin_feed_path %>

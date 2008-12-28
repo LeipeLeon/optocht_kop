@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081220144617) do
+ActiveRecord::Schema.define(:version => 20081228133001) do
 
   create_table "comatose_page_versions", :force => true do |t|
     t.integer  "comatose_page_id"
@@ -57,12 +57,33 @@ ActiveRecord::Schema.define(:version => 20081220144617) do
     t.datetime "updated_at"
   end
 
+  create_table "feeds", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", :force => true do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.float    "altitude"
     t.float    "horizontal_accuracy"
     t.float    "vertical_accuracy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "niews", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

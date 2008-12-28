@@ -1,0 +1,23 @@
+<h1><%= t("form.new") %> feed</h1>
+
+<% form_for([:admin,@feed]) do |f| %>
+  <%= f.error_messages %>
+
+<table class="list">
+    <tr>
+		<th><%= f.label :title %>: </th>
+    	<td><%= f.text_field :title %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :body %>: </th>
+    	<td><%= f.text_area :body %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= f.submit t("form.create") %></td>
+	</tr>
+<% end %>
+</table>
+<%= link_to t("form.back"), admin_feeds_path %>
+
+

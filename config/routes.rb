@@ -29,10 +29,10 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
+  map.namespace :admin do |admin|
+    admin.resources :feeds # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+    # admin.resources :locations
+  end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "locations"
