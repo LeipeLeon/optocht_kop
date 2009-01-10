@@ -22,9 +22,12 @@ set :use_sudo, false
 
 set :chmod777, %w(public/thumb)
 
-role :app, "web"
-role :web, "web"
-role :db,  "web", :primary => true
+role :app, "root@192.168.134.196"
+role :web, "root@192.168.134.196"
+role :db,  "root@192.168.134.196", :primary => true
+# role :app, "web"
+# role :web, "web"
+# role :db,  "web", :primary => true
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
@@ -52,5 +55,15 @@ namespace :deploy do
     run(chmod777.collect do |item|
       "chmod 777 #{current_path}/#{item}"
     end.join(" && "))
+  end
+
+  desc "Create database.yml in shared/config" 
+  task :after_deploy do
+
+    # remove  the dev version of database.yml
+    run "rm #{release_path}/config/database.yml"
+  
+    # link to the database.yml
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml" 
   end
 end
