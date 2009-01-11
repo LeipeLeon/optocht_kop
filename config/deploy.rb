@@ -20,7 +20,7 @@ set :scm_verbose, :true
 # set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 
-set :chmod777, %w(public/thumb)
+set :chmod777, %w(public/thumb public log)
 
 role :app, "root@192.168.134.196"
 role :web, "root@192.168.134.196"
@@ -53,17 +53,30 @@ namespace :deploy do
   desc "Set the proper permissions for directories and files"
   task :before_restart do
     run(chmod777.collect do |item|
-      "chmod 777 #{current_path}/#{item}"
+      "chmod 777 -R #{current_path}/#{item}"
     end.join(" && "))
   end
 
-  desc "Create database.yml in shared/config" 
-  task :after_deploy do
+  desc "Link to database.yml in shared/config" 
+  task :after_setup do
+    # copy dev version of database.yml to alter later
+    run "if [ ! -d \"#{deploy_to}/#{shared_dir}/config\" ] ; then mkdir #{deploy_to}/#{shared_dir}/config ; fi"
+  end
 
-    # remove  the dev version of database.yml
+  desc "Link to database.yml in shared/config" 
+  task :after_deploy do
+    # remove  the git version of database.yml
     run "rm #{release_path}/config/database.yml"
-  
-    # link to the database.yml
+
+    # als shared conf bestand nog niet bestaat
+    run "if [ ! -x \"#{deploy_to}/#{shared_dir}/config/database.yml\" ] ; then cp #{deploy_to}/#{shared_dir}/#{repository_cache}/config/database.yml #{deploy_to}/#{shared_dir}/config/database.yml ; echo \"
+    
+    
+    REMEMBER TO ALTER THE DATABASE SETUP!!!
+    
+    
+    \"; fi"
+    # link to the shared database.yml
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml" 
   end
 end
