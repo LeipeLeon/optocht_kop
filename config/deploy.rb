@@ -3,7 +3,7 @@ set :application, "optocht"
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
-set :deploy_to, "/var/www/nl/pampus-lollebroek/#{application}"
+set :deploy_to, "/var/www/apps/#{application}"
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
@@ -22,12 +22,9 @@ set :use_sudo, false
 
 set :chmod777, %w(public/thumb public log)
 
-role :app, "root@192.168.134.196"
-role :web, "root@192.168.134.196"
-role :db,  "root@192.168.134.196", :primary => true
-# role :app, "web"
-# role :web, "web"
-# role :db,  "web", :primary => true
+role :app, "c"
+role :web, "c"
+role :db,  "c", :primary => true
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
@@ -57,26 +54,22 @@ namespace :deploy do
     end.join(" && "))
   end
 
-  desc "Link to database.yml in shared/config" 
+  desc "Create shared/config" 
   task :after_setup do
     # copy dev version of database.yml to alter later
     run "if [ ! -d \"#{deploy_to}/#{shared_dir}/config\" ] ; then mkdir #{deploy_to}/#{shared_dir}/config ; fi"
   end
 
   desc "Link to database.yml in shared/config" 
-  task :after_deploy do
+  task :symlink_config do
     # remove  the git version of database.yml
-    run "rm #{release_path}/config/database.yml"
+    run "if [ -e \"#{release_path}/config/database.yml\" ] ; then rm #{release_path}/config/database.yml; fi"
 
     # als shared conf bestand nog niet bestaat
-    run "if [ ! -x \"#{deploy_to}/#{shared_dir}/config/database.yml\" ] ; then cp #{deploy_to}/#{shared_dir}/#{repository_cache}/config/database.yml #{deploy_to}/#{shared_dir}/config/database.yml ; echo \"
-    
-    
-    REMEMBER TO ALTER THE DATABASE SETUP!!!
-    
-    
-    \"; fi"
+    run "if [ ! -e \"#{deploy_to}/#{shared_dir}/config/database.yml\" ] ; then cp #{deploy_to}/#{shared_dir}/#{repository_cache}/config/database.yml #{deploy_to}/#{shared_dir}/config/database.yml ; echo \"REMEMBER TO ALTER THE DATABASE SETUP!!!\"; fi"
+
     # link to the shared database.yml
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml" 
   end
+  after "deploy:symlink", "deploy:symlink_config"
 end
