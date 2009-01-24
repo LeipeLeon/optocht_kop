@@ -1,3 +1,4 @@
+<% if @map %>
 <% content_for("header") do %>
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
 	<%= @map.to_html(:full => params[:full]) %>
@@ -25,3 +26,4 @@
 <%= remote_function(:success => "eval('(' + request + ')');", :url => {:action => :index, :format => :js} ) %>;
 </script>
 -->
+<% end %>

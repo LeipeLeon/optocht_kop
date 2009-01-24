@@ -6,25 +6,22 @@ class LocationsController < ApplicationController
     @page.title = t('location.title')
     @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
 
-    get_map
-    set_zoom
-    get_head
+    if @locations
+      get_map
+      set_zoom
+      get_head
+    else
+      flash[:notice] = 'Er is nog geen data geladen!'
+    end
 
     respond_to do |format|
-      format.iphone # index.iphone.erb
-      format.html do # index.js.erb  
-        get_route
-        # get_accuracy
+      format.iphone
+      format.html do
+        get_route if @locations
       end
-      format.js do # index.html.erb  
-        get_route
-        # get_accuracy
+      format.js do
+        get_route if @locations
       end
-      # if params[:full]
-      #   render :format => format, :layout => 'full'
-      # else
-      #   render :format => format
-      # end
     end
   end
 
