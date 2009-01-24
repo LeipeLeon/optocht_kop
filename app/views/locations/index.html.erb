@@ -26,4 +26,6 @@
 <%= remote_function(:success => "eval('(' + request + ')');", :url => {:action => :index, :format => :js} ) %>;
 </script>
 -->
+<% else %>
+Er is nog geen data beschikbaar.
 <% end %>

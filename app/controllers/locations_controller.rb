@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
       set_zoom
       get_head
     else
-      flash[:notice] = 'Er is nog geen data geladen!'
+      flash[:notice] = 'Er is nog geen data beschikbaar!'
     end
 
     respond_to do |format|
