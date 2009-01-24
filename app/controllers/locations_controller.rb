@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
     @page.title = t('location.title')
     @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
 
-    if @locations
+    if @locations.size > 0
       get_map
       set_zoom
       get_head
@@ -17,10 +17,10 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.iphone
       format.html do
-        get_route if @locations
+        get_route if @locations.size > 0
       end
       format.js do
-        get_route if @locations
+        get_route if @locations.size > 0
       end
     end
   end
