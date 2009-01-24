@@ -3,12 +3,12 @@
 * { font-family: Arial,sans-serif; }
 
 html {
-	background: url(/images/2003002-mockup_header_filler.jpg) repeat-x;
+	background: url(../images/2003002-mockup_header_filler.jpg) repeat-x;
 	margin: 0px;
 	padding: 0px;
 }
 body {
-	/*background: url(/images/2003002-mockup_header.jpg) no-repeat center top;*/
+	/*background: url(../images/2003002-mockup_header.jpg) no-repeat center top;*/
 	margin: 0px;
 	padding: 0px;
 }
