@@ -9,7 +9,7 @@ set :deploy_to, "/var/www/apps/#{application}"
 # your SCM below:
 set :scm, :git
 default_run_options[:pty] = true
-set :repository, "ssh://web//var/www/git/optocht"
+set :repository, "git@github.com:LeipeLeon/optocht.git"
 # set :repository, "file://."
 set :repository_cache, "git_master"
 set :deploy_via, :remote_cache
