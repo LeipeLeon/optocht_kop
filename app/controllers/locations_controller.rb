@@ -57,11 +57,14 @@ class LocationsController < ApplicationController
   def just_map
     @page.title = t('location.title')
     @location = Location.last
-
-    get_map(false,false)
-    set_zoom('init', 16)
-    get_head
-    get_route
+    if @location
+      get_map(false,false)
+      set_zoom('init', 16)
+      get_head
+      get_route
+    else
+      flash[:notice] = 'Er is nog geen data beschikbaar!'
+    end
   end
 
   def new

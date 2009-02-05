@@ -13,11 +13,16 @@
 		padding: 0px;
 	}
 	</style>
+	<% if @map %>
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
 	<%= @map.to_html(:full => params[:full]) %>
-</head>
+	<% end %></head>
 <body>
+<% if @map %>
 <%= @map.div(:width => 320, :height => 300) %>
 <p style="text-align: center">Precisie: +/- <%= @locations.first.horizontal_accuracy.to_i %> meter, <%= distance_of_time_in_dutch(@locations.first.created_at, Time.now, true) %> geleden</p>
+<% else %>
+Er is nog geen data beschikbaar.
+<% end %>
 </body>
 </html>
