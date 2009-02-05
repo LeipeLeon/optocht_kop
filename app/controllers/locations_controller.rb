@@ -19,11 +19,11 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.iphone
       format.html do
-        get_route
+        get_route if @location
         # get_traveled if @location.size > 0
       end
       format.js do
-        get_route
+        get_route if @location
         # get_traveled if @location.size > 0
       end
     end
