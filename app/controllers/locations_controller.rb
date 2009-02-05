@@ -241,13 +241,13 @@ private
   def create_accuracy_icons
     return @accuracy_icons if @accuracy_icons
     @accuracy_icons = {
-      0 => @map.icon_global_init(GIcon.new(:image => "/images/accuracy_icon_0.png",
+      0 => @map.icon_global_init(GIcon.new(:image => "#{ActionController::Base.relative_url_root}/images/accuracy_icon_0.png",
          :icon_anchor => GPoint.new(15,15),
          :info_window_anchor => GPoint.new(15,15)), "img_route_point_0",
          :icon_size => GSize.new(30,30))
     }
     10.step(100,10) { |point|
-      @map.icon_global_init(GIcon.new(:image => "/images/acc_icon_#{point}.png",
+      @map.icon_global_init(GIcon.new(:image => "#{ActionController::Base.relative_url_root}/images/acc_icon_#{point}.png",
          :icon_anchor => GPoint.new(point/2,point/2),
          :info_window_anchor => GPoint.new(point/2,point/2)), "img_route_point_#{point}",
          :iconSize => GSize.new(point,point))
