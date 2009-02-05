@@ -13,9 +13,9 @@ en:
       destroy: "Verwijder"
       update:  "Werk bij"
   deelnemer:
-      title: "Deelnemers Optocht 2008"
+      title: "Deelnemers Optocht 2009"
   location:
-      title: "Kop Optocht 2008"
+      title: "Kop Optocht 2009"
       new: "Nieuwe Locatie"
       lat: "Hoogtegraad"
       lon: "Breedtegraad"
@@ -23,7 +23,7 @@ en:
       ver: "Verticale marge"
       alt: "Elevatie"	
       
-  footnote: "&copy;2008 <a href=\"http://beriedata.nl\">BerieData.nl</a> i.o.v. <a href=\"http://pampus-lollebroek.nl\">Optochtcommissie De Lollebroek Pampus</a>"
+  footnote: "&copy;2009 <a href=\"http://beriedata.nl\">BerieData.nl</a> i.o.v. <a href=\"http://pampus-lollebroek.nl\">Optochtcommissie De Lollebroek Pampus</a>"
   deelnemers:
       title: "Deelnemers"
 

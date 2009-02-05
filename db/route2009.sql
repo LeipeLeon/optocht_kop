@@ -1,4 +1,4 @@
-INSERT INTO routes (latitude, longitude, altitude)
+INSERT INTO routes (longitude, latitude, altitude)
 VALUES ('6.112787000000001','52.205063','0'),
 ('6.115694','52.205189','0'),
 ('6.118366','52.205429','0'),
