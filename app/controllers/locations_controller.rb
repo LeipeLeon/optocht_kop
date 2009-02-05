@@ -145,11 +145,11 @@ private
     # create the icon : "/images/knob_big.png"
     last_location = Variable.new("last_location")
     if @location.horizontal_accuracy.to_i < 100
-      @map.icon_global_init(GIcon.new(:image => "/images/knob_small.png",
+      @map.icon_global_init(GIcon.new(:image => "#{ActionController::Base.relative_url_root}/images/knob_small.png",
          :icon_anchor => GPoint.new(78/2,78/2),
          :info_window_anchor => GPoint.new(78/2,78/2)), "last_location")
     else
-      @map.icon_global_init(GIcon.new(:image => "/images/knob_big.png",
+      @map.icon_global_init(GIcon.new(:image => "#{ActionController::Base.relative_url_root}/images/knob_big.png",
          :icon_anchor => GPoint.new(191/2,191/2),
          :info_window_anchor => GPoint.new(191/2,191/2)), "last_location")
     end
