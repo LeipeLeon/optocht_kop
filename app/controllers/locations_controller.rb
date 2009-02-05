@@ -17,10 +17,10 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.iphone
       format.html do
-        get_route if @locations.size > 0
+        get_traveled if @locations.size > 0
       end
       format.js do
-        get_route if @locations.size > 0
+        get_traveled if @locations.size > 0
       end
     end
   end
@@ -32,7 +32,7 @@ class LocationsController < ApplicationController
     # params[:last_update]
     @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
     head  = get_head('add')
-    route = get_route('add')
+    route = get_traveled('add')
     center = set_zoom('add')
 
     respond_to do |format|
@@ -55,7 +55,7 @@ class LocationsController < ApplicationController
     get_map(false,false)
     set_zoom('init', 16)
     get_head
-    get_route
+    get_traveled
 
   end
 
@@ -151,7 +151,7 @@ private
     end
   end
   
-  def get_route(type = 'init')
+  def get_traveled(type = 'init')
     # Maak alle icons voor accuracy
     @accuracy_icons = {
       0 => @map.icon_global_init(GIcon.new(:image => "/images/accuracy_icon_0.png",
