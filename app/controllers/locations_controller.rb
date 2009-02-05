@@ -79,9 +79,22 @@ class LocationsController < ApplicationController
 
       if @location.save
         # flash[:notice] = "Location successfully created. #{Time.now}"
-        render :text => "Loc. Created @ #{Time.now}"
+        respond_to do |format|
+          format.iphone  { 
+            head :ok 
+            render :text => "Loc. Created @ #{Time.now}"
+          }
+          format.html { redirect_to(:controller => :home) }
+        end
       else
         flash[:notice] = 'Error on creation.'
+        respond_to do |format|
+          format.iphone  { 
+            head :ok 
+            render :text => "Error on creation of location"
+          }
+          format.html { render :action => "edit" }
+        end
       end
     # else
     #   render :text => "Wrong device!"
