@@ -36,6 +36,11 @@ class LocationsController < ApplicationController
     @location = Location.last
     @route = Route.find(:all)
     
+    unless @location
+      @location = @route.first
+      flash[:notice] = 'Er is nog geen data beschikbaar!'
+    end
+
     head  = get_head('add')
     # traveled = get_traveled('add')
     route = get_route('add')
