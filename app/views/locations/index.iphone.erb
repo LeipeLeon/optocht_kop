@@ -2,6 +2,7 @@
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
 	<%= @map.to_html %>
 <% end %>
+<%= @map.div(:width => 320, :height => 290) %>
 <% if @location %>
 <p>Precisie: +/- <%= @location.horizontal_accuracy.to_i %> meter <%= distance_of_time_in_dutch(@location.created_at, Time.now, true) %> geleden</p>
 <% end %>
