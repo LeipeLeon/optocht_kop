@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :deelnemers
   
-  map.resources :locations, :collection => {:just_map => :any, :last_locations => :any, :static => :get}
+  map.resources :locations, :collection => {:last_locations => :any, :static => :get}
   # map.resources :locations
   # The priority is based upon order of creation: first created -> highest priority.
 

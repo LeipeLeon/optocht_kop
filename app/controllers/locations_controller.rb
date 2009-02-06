@@ -60,19 +60,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  def just_map
-    @page.title = t('location.title')
-    @location = Location.last
-    if @location
-      get_map(false,false)
-      set_zoom('init', 16)
-      get_head
-      get_route
-    else
-      flash[:notice] = t(:'no_data_available')
-    end
-  end
-
   def new
     @page.title = t('location.new')
     @location = Location.new
