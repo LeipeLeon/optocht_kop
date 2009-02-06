@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate, :except => [:index, :create, :last_locations, :just_map, :create_thumb]
+  before_filter :authenticate, :except => [:index, :create, :last_locations, :just_map, :static]
 
   # layout "iphone"
   def index
@@ -70,6 +70,32 @@ class LocationsController < ApplicationController
   def new
     @page.title = t('location.new')
     @location = Location.new
+  end
+
+  def static
+    @location = Location.last
+    @route_points = Route.find(:all)
+    route = ""
+    @route_points.each { |loc|
+      route << "|#{loc.latitude},#{loc.longitude}"
+    }
+
+    @static_url = "http://maps.google.com/staticmap"
+    if @location
+      @static_url << "?center=#{@location.latitude},#{@location.longitude}"
+      @static_url << "&markers=#{@location.latitude},#{@location.longitude},bluek"
+      @static_url << "&zoom=14"
+    else
+      @static_url << "?center=#{@route_points.first.latitude},#{@route_points.first.longitude}"
+      @static_url << "&markers=#{@route_points.first.latitude},#{@route_points.first.longitude},bluek"
+      @static_url << "&zoom=13"
+    end
+    @static_url << "&size=320x290"
+    @static_url << "&maptype=terrain" # mobile
+    @static_url << "&sensor=false"
+    @static_url << "&key=" + ApiKey.get(:host => request.host)
+    @static_url << "&path=rgba:0xff0000ff,weight:5" + route
+    @static_url << "&path=rgba:0xffcc00ff,weight:3" + route
   end
   
   def create
