@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   helper :all # include all helpers, all the time
+  has_mobile_fu
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -15,16 +16,12 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   exempt_from_layout('iphone_html.erb')  
     
-  before_filter :adjust_format_for_iphone  
+  before_filter :adjust_format_for_mobile
   before_filter :set_page_vars, :except => [:create, :destroy]
 
 protected  
-  def iphone_user_agent?
-    request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
-  end
-
-  def adjust_format_for_iphone    
-    request.format = :iphone if iphone_user_agent?
+  def adjust_format_for_mobile    
+    request.format = :iphone if in_mobile_view?
   end
     
   def set_page_vars
