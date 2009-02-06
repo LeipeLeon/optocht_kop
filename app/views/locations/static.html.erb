@@ -1,6 +1,4 @@
 <img src="<%= @static_url %>"/>
 <% if @location %>
 <p>Precisie: +/- <%= @location.horizontal_accuracy.to_i %> meter <%= distance_of_time_in_dutch(@location.created_at, Time.now, true) %> geleden</p>
-<% else %>
-Er is nog geen data beschikbaar.
 <% end %>
