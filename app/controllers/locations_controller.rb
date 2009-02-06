@@ -121,22 +121,6 @@ class LocationsController < ApplicationController
     # end
   end
 
-  def create_thumb
-    url = 'http://webserver.vda-groep.nl/locations/just_map.html'
-    t = Nailer.new(url, 320, 300)
-
-    if t.ok?
-      t.wait_until_ready
-      # t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out1.jpg", :small)
-      # t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out2.jpg", :medium)
-      t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out3.jpg", :medium2)
-      # t.retrieve_to_file("#{RAILS_ROOT}/public/thumb/out4.jpg", :large)
-      render :text => "Thumbnails saved /thumb/out1.jpg"
-    else
-      render :text => "Error"
-    end    
-  end
-
 private
   def get_accuracy_icon(accuracy)
     @accuracy_icons[((accuracy / 10)*10)]
