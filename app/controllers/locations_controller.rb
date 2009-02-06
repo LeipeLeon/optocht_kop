@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
     # we're not started yet, so move over to the start.
     unless @location
       @location = @route.first
-      flash[:notice] = 'Er is nog geen data beschikbaar!'
+      flash[:notice] = t(:'no_data_available')
     end
     get_map
     set_zoom
@@ -38,7 +38,7 @@ class LocationsController < ApplicationController
     
     unless @location
       @location = @route.first
-      flash[:notice] = 'Er is nog geen data beschikbaar!'
+      flash[:notice] = t(:'no_data_available')
     end
 
     head  = get_head('add')
@@ -69,7 +69,7 @@ class LocationsController < ApplicationController
       get_head
       get_route
     else
-      flash[:notice] = 'Er is nog geen data beschikbaar!'
+      flash[:notice] = t(:'no_data_available')
     end
   end
 
@@ -95,6 +95,7 @@ class LocationsController < ApplicationController
       @static_url << "?center=#{@route_points.first.latitude},#{@route_points.first.longitude}"
       @static_url << "&markers=#{@route_points.first.latitude},#{@route_points.first.longitude},bluek"
       @static_url << "&zoom=13"
+      flash[:notice] = t(:'no_data_available')
     end
     @static_url << "&size=320x290"
     @static_url << "&maptype=terrain" # mobile

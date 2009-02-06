@@ -1,9 +1,7 @@
-<% if @map %>
 <% content_for("header") do %>
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
 	<%= @map.to_html %>
 <% end %>
+<% if @location %>
 <p>Precisie: +/- <%= @location.horizontal_accuracy.to_i %> meter <%= distance_of_time_in_dutch(@location.created_at, Time.now, true) %> geleden</p>
-<% else %>
-Er is nog geen data beschikbaar.
 <% end %>
