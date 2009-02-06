@@ -8,6 +8,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.iphone # index.iphone.erb
       format.xml  { render :xml => @feeds }
     end
   end
@@ -19,6 +20,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.iphone # show.iphone.erb
       format.xml  { render :xml => @feed }
     end
   end
