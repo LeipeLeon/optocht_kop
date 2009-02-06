@@ -98,3 +98,23 @@ div.title a img {
     color: #ffffff;  
     cursor: hand;  
 }
+
+
+h1, h2,h3,h4 {
+	letter-spacing: 3px; 
+	margin: 1.5em 0; 
+	padding: 0; 
+	font-variant:bold; 
+	font-weight:bold; 
+	font-family:Arial;
+}
+
+h1 {font-size: 120%; border-bottom:1px #69C solid; text-align: center;}
+h2 {font-size: 110%; border-bottom:1px #690 solid; }
+h3 {font-size: 105%; border-bottom:1px #C63 solid; }
+h4 {font-size: 100%; border-bottom:1px #369 solid; }
+#footnote {
+	border-top:1px #369 dashed; 
+	padding-top:1em;
+	font-size: 75%;
+}
