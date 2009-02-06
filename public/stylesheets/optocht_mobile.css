@@ -6,10 +6,13 @@ html {
 	padding: 0px;
 }
 body {
-	background: url(../images/header_mobile.gif) no-repeat center top;
 	margin: 0px;
 	padding: 0px;
-	padding-top: 57px;
+}
+
+div.title a img {
+	display: block;
+	margin: auto;
 }
 
 /* Default Facebook CSS */  

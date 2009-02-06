@@ -10,6 +10,10 @@
 	<%= yield :header %>
 </head>
 <body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
+	<div class="title">
+		<%= link_to image_tag("header_mobile.gif", :border => 0), comatose_root_url %>
+		<h1>Optocht Pampus - Lollebroek</h1>
+	</div>
 	<%- if flash[:notice] -%><p class="infobox"><%= flash[:notice] %></p><%- end -%>
 	<h2 style="text-align:center;"><%= @page.title %></h2>
 	<%= yield %>
