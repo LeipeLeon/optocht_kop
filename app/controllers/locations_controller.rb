@@ -8,13 +8,14 @@ class LocationsController < ApplicationController
     @location = Location.last
     @route = Route.find(:all)
 
-    if @location
-      get_map
-      set_zoom
-      get_head
-    else
+    # we're not started yet, so move over to the start.
+    unless @location
+      @location = @route.first
       flash[:notice] = 'Er is nog geen data beschikbaar!'
     end
+    get_map
+    set_zoom
+    get_head
 
     respond_to do |format|
       format.iphone
