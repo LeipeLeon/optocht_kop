@@ -2,7 +2,24 @@
 	<%= GMap.header(:hl => 'nl', :host => request.host) %>
 	<%= @map.to_html %>
 <% end %>
+
+<%= periodically_call_remote(
+	:success => "eval('(' + request + ');');", 
+	:frequency => 60,
+	:url => {
+		:action => :last_locations, 
+		:format => :js
+	} ) %>
+<%= link_to_remote( 'Reload', 
+	:success => "eval('(' + request + ');');", 
+	:url => {
+		:action => :last_locations, 
+		:format => :js
+	} ) %>
 <%= @map.div(:width => 320, :height => 290) %>
 <% if @location %>
 <p>Precisie: +/- <%= @location.horizontal_accuracy.to_i %> meter <%= distance_of_time_in_dutch(@location.created_at, Time.now, true) %> geleden</p>
 <% end %>
+Bekijk rechtstreeks in <a href="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>">Google Maps</a>
+<br/>
+<br/>
