@@ -20,7 +20,6 @@ module Ym4r
         if options.has_key?(:key)
           options[:key]
         elsif GMAPS_API_KEY.is_a?(Hash)
-          # raise GMAPS_API_KEY
           #For this environment, multiple hosts are possible.
           #:host must have been passed as option
           if options.has_key?(:host)
