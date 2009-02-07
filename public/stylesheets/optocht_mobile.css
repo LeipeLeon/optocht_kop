@@ -119,3 +119,27 @@ h4 {font-size: 100%; border-bottom:1px #369 solid; }
 	padding-top:1em;
 	font-size: 75%;
 }
+
+a {
+	display: inline-block;
+	border: 1px solid #4f4f4f;
+	padding: .5em 1.5em;
+	margin: .3em;
+	color:  black;
+	background-color: #c5c5c5;
+	border-radius: 5px;
+	-webkit-border-radius: 17px;
+	-moz-border-radius: 25px;
+	text-decoration: none;
+}
+a:hover {
+	background-color: #a0a0a0;
+	border-color: #000;
+}
+div#map * a,
+div.title a {
+	border: 0px solid;
+	background-color: transparent;
+	margin: 0px;
+	padding: 0px;
+}
