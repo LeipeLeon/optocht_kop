@@ -2,3 +2,7 @@
 <% if @location %>
 <p>Precisie: +/- <%= @location.horizontal_accuracy.to_i %> meter <%= distance_of_time_in_dutch(@location.created_at, Time.now, true) %> geleden</p>
 <% end %>
+<br/>
+<% @map_types.each { |type, name| %>
+	<%= link_to name, static_locations_url(:type => type) %>
+<% } %>
