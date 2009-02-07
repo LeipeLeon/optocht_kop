@@ -23,11 +23,14 @@ div.title h1 {
 	</style>
 </head>
 <body>
-	<div class="title">
-		<h1>Admin :: Optocht Pampus - Lollebroek</h1>
+<div class="contentcol">
+	<h1>Admin :: Optocht Pampus - Lollebroek</h1>
+	<div class="menu">
+		| <% @menu.each {|link,title| %>
+			<%= link_to title, :controller => "/admin/#{link}" %> |
+		<% }%>
 	</div>
 	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
-<div class="contentcol">
 	<h2 style="text-align:center;"><%= @page.title %></h2>
     <%= yield %>
 	<div id="footnote"><%= t "footnote"%></div>

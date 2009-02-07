@@ -1,17 +1,13 @@
 class AdminController < ApplicationController
   layout proc{ |c| c.request.xhr? ? false : "admin" }
   before_filter :authenticate
+  before_filter :menu
 
   def index
-    render :text => "Admin Section"
   end
 
-private
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == "foo" && password == "bar"
-    end
+private 
+  def menu
+    @menu = { "" => "Admin", :feeds => "News Feed", :twitter => "Twitter"}
   end
-  
-
 end
