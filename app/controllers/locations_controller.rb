@@ -132,12 +132,6 @@ private
   def get_accuracy
     @accuracy = "<p>Precisie: +/- <%= @location.horizontal_accuracy.to_i %> meter, <%= distance_of_time_in_dutch(@location.created_at, Time.now, true) %> geleden</p>"
   end
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == "foo" && password == "bar"
-    end
-  end
   
   def get_map(large_map = true, map_type = true)
     # Create a new map object, also defining the div ("map") 

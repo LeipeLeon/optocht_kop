@@ -28,11 +28,11 @@ protected
     @page = ComatosePage.new
   end
 
-  # def check_iphone  
-  #   if iphone_user_agent?  
-  #     request.parameters[:format] = 'iphone_html'  
-  #   end  
-  # end  
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "foo" && password == "bar"
+    end
+  end
 end  
   
 # class DashboardController < ApplicationController  
