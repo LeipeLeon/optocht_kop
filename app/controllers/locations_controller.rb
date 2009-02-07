@@ -1,12 +1,11 @@
 class LocationsController < ApplicationController
   before_filter :authenticate, :except => [:index, :create, :last_locations, :just_map, :static]
+  before_filter :get_db_points, :only => [:index, :last_locations, :static]
 
   # layout "iphone"
   def index
     @page.title = t('location.title')
     # @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
-    @location = Location.last
-    @route = Route.find(:all)
 
     # we're not started yet, so move over to the start.
     unless @location
@@ -16,25 +15,18 @@ class LocationsController < ApplicationController
     get_map
     set_zoom
     get_head
+    get_route if @location
+    # get_traveled if @location.size > 0
 
     respond_to do |format|
       format.iphone
-      format.html do
-        get_route if @location
-        # get_traveled if @location.size > 0
-      end
-      format.js do
-        get_route if @location
-        # get_traveled if @location.size > 0
-      end
+      format.html
+      format.js
     end
   end
 
   def last_locations
     @map = Variable.new("map")
-
-    @location = Location.last
-    @route = Route.find(:all)
     
     unless @location
       @location = @route.first
@@ -61,30 +53,38 @@ class LocationsController < ApplicationController
   end
 
   def static
-    @location = Location.last
-    @route_points = Route.find(:all)
-    route = ""
-    @route_points.each { |loc|
-      route << "|#{loc.latitude},#{loc.longitude}"
+    @map_types = {
+      :terrain => "Terrein",
+      :mobile => "Hoog contrast",
+      :roadmap => "Standaard",
+      :satellite => "Satteliet",
+      :hybrid => "Hybride"
+    }
+
+    route_points = ""
+    @route.each { |loc|
+      route_points << "|#{loc.latitude},#{loc.longitude}"
     }
 
     @static_url = "http://maps.google.com/staticmap"
+    @static_url << "?center=#{@center.latitude},#{@center.longitude}"
     if @location
-      @static_url << "?center=#{@location.latitude},#{@location.longitude}"
       @static_url << "&markers=#{@location.latitude},#{@location.longitude},bluek"
-      @static_url << "&zoom=14"
     else
-      @static_url << "?center=#{@route_points.first.latitude},#{@route_points.first.longitude}"
-      @static_url << "&markers=#{@route_points.first.latitude},#{@route_points.first.longitude},bluek"
-      @static_url << "&zoom=13"
+      @static_url << "&markers=#{@route.first.latitude},#{@route.first.longitude},bluek"
       flash.now[:notice] = t(:'no_data_available')
     end
-    @static_url << "&size=320x290"
-    @static_url << "&maptype=terrain" # mobile
+    @static_url << "&zoom=13"
+    @static_url << "&maptype=#{params[:type] || "terrain"}"
     @static_url << "&sensor=false"
     @static_url << "&key=" + ApiKey.get(:host => request.host)
-    @static_url << "&path=rgba:0xff0000ff,weight:5" + route
-    @static_url << "&path=rgba:0xffcc00ff,weight:3" + route
+    @static_url << "&path=rgba:0xff0000ff,weight:5" + route_points
+    @static_url << "&path=rgba:0xffcc00ff,weight:3" + route_points
+    
+    respond_to do |format|
+      format.html   { @static_url << "&size=640x480" }
+      format.iphone { @static_url << "&size=320x290" }
+    end
   end
   
   def create
@@ -117,6 +117,16 @@ class LocationsController < ApplicationController
   end
 
 private
+  def get_db_points
+    @location = Location.last
+    @route    = Route.find(:all)
+    if request.format == :iphone
+      @center = @location || @route.first
+    else
+      @center = Route.center
+    end
+  end
+
   def get_accuracy_icon(accuracy)
     @accuracy_icons[((accuracy / 10)*10)]
   end
@@ -164,10 +174,10 @@ private
     end
   end
 
-  def set_zoom(type = 'init', level = 14) # Center the map on specific coordinates and focus in fairly closely
+  def set_zoom(type = 'init', level = 13) # Center the map on specific coordinates and focus in fairly closely
     case type 
-    when 'add':  @map.set_center(GLatLng.new([@location.latitude, @location.longitude]))
-    else         @map.center_zoom_init([@location.latitude, @location.longitude], level)
+    when 'add':  @map.set_center(GLatLng.new([@center.latitude, @center.longitude]))
+    else         @map.center_zoom_init([@center.latitude, @center.longitude], level)
     end
   end
   
@@ -253,6 +263,5 @@ private
       @accuracy_icons[point] = Variable.new("img_route_point_#{point}")
     }
   end
-
 end
 
