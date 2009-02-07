@@ -4,9 +4,6 @@ class LocationsController < ApplicationController
 
   # layout "iphone"
   def index
-    @page.title = t('location.title')
-    # @locations = Location.find(:all, :conditions => "horizontal_accuracy < 80", :order => "created_at DESC", :limit => 10 )#, :limit => '50'.reverse
-
     # we're not started yet, so move over to the start.
     unless @location
       @location = @route.first
@@ -118,6 +115,7 @@ class LocationsController < ApplicationController
 
 private
   def get_db_points
+    @page.title = t('location.title')
     @location = Location.last
     @route    = Route.find(:all)
     if request.format == :iphone
