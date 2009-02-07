@@ -46,17 +46,12 @@ class LocationsController < ApplicationController
     route = get_route('add')
     center = set_zoom('add')
 
-    respond_to do |format|
-      format.js do# index.html.erb  
-        render :update do |page|
-          page << @map.clear_overlays
-          page << head
-          page << route
-          # page << traveled
-          page << center
-        end
-        # get_accuracy
-      end
+    render :update do |page|
+      page << @map.clear_overlays
+      page << head
+      page << route
+      # page << traveled
+      page << center
     end
   end
 
