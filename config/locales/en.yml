@@ -30,3 +30,6 @@ en:
 
   feed: 
       title: "Nieuws"
+      
+  tweet: 
+      new: "Plaats nieuwe Tweet"

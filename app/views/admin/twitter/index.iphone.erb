@@ -1,0 +1,6 @@
+<%= link_to t('tweet.new'), new_admin_twitter_url %>
+<ul>
+<% @tweets.each { |tweet| %>
+	<li><%= tweet.text %> (<%= tweet.created_at %>)</li>
+<% } %>
+</ul>

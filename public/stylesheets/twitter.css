@@ -1,0 +1,57 @@
+/* @override 
+	http://localhost:3000/stylesheets/twitter.css?1234028144
+	http://localhost:3000/stylesheets/twitter.css?1234028497
+	http://localhost:3000/stylesheets/twitter.css?1234028556
+	http://localhost:3000/stylesheets/twitter.css?1234028676
+	http://localhost:3000/stylesheets/twitter.css?1234028713
+*/
+
+.status-btn {
+	float: left;
+	padding: 5px 10px 0 5px;
+}
+.status-btn input.round-btn {
+	width: 115px;
+	height: 32px;
+	border: 0;
+	color: #666;
+	font-size: 14px;
+	margin-left: 3px;
+}
+.status-btn input.round-btn:hover {
+	width: 115px;
+	height: 32px;
+	border: 0;
+	color: #444;
+	font-size: 14px;
+	margin-left: 3px;
+}
+.status-btn input.disabled,.status-btn input.disabled:hover {
+	color: #aaa;
+	cursor: default;
+}
+
+.status-btn input.round-btn {
+	background: url('http://static.twitter.com/images/round-btn.gif'); 
+}
+.status-btn input.round-btn:hover { 
+	background: url('http://static.twitter.com/images/round-btn-hover.gif'); 
+}
+#countdown, #countdown font {
+	font-size: 48px; 
+	font-family: Georgia; 
+	float: right;
+	margin-right: .4em;
+}
+#tweet {
+	display: inline-block; 
+	clear: both;
+	/*border: 1px solid red;*/
+}
+#tweet_text {
+	width: 500px;
+	font-size: 150%;
+	border: 1px solid #ccc;
+	padding: .2em;
+	float: left;
+}
