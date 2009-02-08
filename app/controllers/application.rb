@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
-  exempt_from_layout('iphone_html.erb')  
     
   before_filter :adjust_format_for_mobile
   before_filter :set_page_vars, :except => [:create, :destroy]
@@ -24,9 +23,9 @@ protected
     request.format = :iphone if in_mobile_view?
   end
     
-  def set_page_vars
-    @page = ComatosePage.new
-  end
+  # def set_page_vars
+  #   @page = ComatosePage.new
+  # end
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|

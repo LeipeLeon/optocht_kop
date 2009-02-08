@@ -38,7 +38,6 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "locations"
 
   # See how all your routes lay out with "rake routes"
 
@@ -49,8 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
   map.connect ':controller/:action.:format'
 
-  map.comatose_admin 
-
-  map.comatose_root '', :layout=>'application' #, :index=>'home'
-
+  # map.comatose_admin 
+  # map.comatose_root '', :layout => 'cms', :use_cache => false #, :index=>'home'
+  map.root :controller => "home"
 end

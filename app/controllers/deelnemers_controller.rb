@@ -88,6 +88,6 @@ class DeelnemersController < ApplicationController
 
 private
   def set_page_title
-    @page.title = t('deelnemer.title')
+    @page_title = t('deelnemer.title')
   end
 end

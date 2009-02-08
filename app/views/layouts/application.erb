@@ -6,17 +6,17 @@
     <meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 	<%= stylesheet_link_tag 'optocht' %>
-    <title><%= @page.title -%></title>
+    <title><%= @page_title -%></title>
 	<%= yield :header %>
 </head>
 <body>
 	<div class="title">
-		<%= link_to image_tag("2003002-mockup_header.jpg", :border => 0), comatose_root_url %>
+		<%= link_to image_tag("2003002-mockup_header.jpg", :border => 0), root_url %>
 		<h1>Optocht Pampus - Lollebroek</h1>
 	</div>
 <div class="contentcol">
 	<%- if flash[:notice] -%><p class="infobox"><%= flash[:notice] %></p><%- end -%>
-	<h2 style="text-align:center;"><%= @page.title %></h2>
+	<h2 style="text-align:center;"><%= @page_title %></h2>
     <%= yield %>
 	<div id="footnote"><%= t "footnote"%></div>
 </div>

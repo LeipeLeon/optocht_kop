@@ -45,7 +45,7 @@ class LocationsController < ApplicationController
   end
 
   def new
-    @page.title = t('location.new')
+    @page_title = t('location.new')
     @location = Location.new
   end
 
@@ -115,7 +115,7 @@ class LocationsController < ApplicationController
 
 private
   def get_db_points
-    @page.title = t('location.title')
+    @page_title = t('location.title')
     @location = Location.last
     @route    = Route.find(:all)
     if request.format == :iphone

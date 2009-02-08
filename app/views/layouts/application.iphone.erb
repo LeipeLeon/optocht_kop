@@ -6,18 +6,18 @@
     <link rel="apple-touch-icon" href="<%= image_path("apple-touch-icon.png") %>"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title><%= @page.title -%></title>
+    <title><%= @page_title -%></title>
 	<%= stylesheet_link_tag 'optocht_mobile' %>
 	<%= yield :header %>
 </head>
 <body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
 	<div class="title">
-		<%= link_to image_tag("header_mobile.gif", :border => 0), comatose_root_url %>
+		<%= link_to image_tag("header_mobile.gif", :border => 0), root_url %>
 	</div>
 	<%- if flash[:notice] -%><p class="infobox"><%= flash[:notice] %></p><%- end -%>
-	<div style="text-align:center;"><%= @page.title %></div>
+	<div style="text-align:center;"><%= @page_title %></div>
 	<%= yield %>
-	<%= link_to "Home", comatose_root_url unless @page.slug == "" %>
+	<%= link_to "Home", root_url unless @page_title == "Home" %>
 	<div id="footnote"><%= t "footnote"%></div>
 </body>
 </html>

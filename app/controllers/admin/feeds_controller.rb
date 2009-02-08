@@ -87,7 +87,7 @@ class Admin::FeedsController < AdminController
 
 private
   def set_page_title
-    @page.title = t('feed.title')
+    @page_title = t('feed.title')
   end
 
 end

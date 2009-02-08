@@ -27,7 +27,7 @@ class FeedsController < ApplicationController
 
 private
   def set_page_title
-    @page.title = t('feed.title')
+    @page_title = t('feed.title')
   end
 
 end
