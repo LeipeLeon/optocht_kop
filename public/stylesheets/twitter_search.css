@@ -59,7 +59,6 @@ body{font:13px/1.5 Helvetica,Arial,'Liberation Sans',FreeSans,sans-serif;text-al
 }
 
 a {
-	display: inline-block;
 	border: 0px solid #4f4f4f;
 	padding: .1em;
 	margin: .1em;
