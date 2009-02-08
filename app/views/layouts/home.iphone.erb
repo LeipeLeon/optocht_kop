@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <link rel="apple-touch-icon" href="<%= image_path("apple-touch-icon.png") %>"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title><%= @page_title -%></title>
+	<%= stylesheet_link_tag 'optocht_mobile' %>
+	<%= yield :header %>
+</head>
+<body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
+	<div class="title">
+		<%= link_to image_tag("header_mobile.gif", :border => 0), root_url %>
+	</div>
+	<%- if flash[:notice] -%><p class="infobox"><%= flash[:notice] %></p><%- end -%>
+	<div style="text-align:center;"><%= @page_title %></div>
+	<%= yield %>
+	<%= link_to "Home", root_url unless @page_title == "Home" %>
+	<div id="footnote"><%= t "footnote"%></div>
+</body>
+</html>
+<script language="javascript">
+	window.scrollTo(0, 1); // pan to the bottom, hides the location bar
+</script>
+<%= google_analytics %>

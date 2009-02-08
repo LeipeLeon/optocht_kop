@@ -1,0 +1,16 @@
+<h2 style="text-align:center;"><%= t(:'feed.title') %></h2>
+<div class="news" id="news">
+<% for item in Feed.last do %>
+	<div class="news_item" id="news_item_<%= item.id %>">
+		<div class="date">
+			<%= item.created_at %>
+		</div>
+		<div class="title">
+			<%= item.title %>
+		</div>
+		<div class="exerpt">
+			<%= item.body %>
+		</div>
+	</div>
+<% end%>
+</div>
