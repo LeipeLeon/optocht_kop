@@ -3,3 +3,5 @@ public/thumb/*.jpg
 LocateMe/LocateMe.xcodeproj/*.mode1v3
 LocateMe/LocateMe.xcodeproj/*.pbxuser
 config/twitter.yml
+config/auth.yml
+config/database.yml
