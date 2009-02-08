@@ -64,12 +64,15 @@ namespace :deploy do
   task :symlink_config do
     # remove  the git version of database.yml
     run "if [ -e \"#{release_path}/config/database.yml\" ] ; then rm #{release_path}/config/database.yml; fi"
+    run "if [ -e \"#{release_path}/config/twitter.yml\" ] ; then rm #{release_path}/config/database.yml; fi"
 
     # als shared conf bestand nog niet bestaat
     run "if [ ! -e \"#{deploy_to}/#{shared_dir}/config/database.yml\" ] ; then cp #{deploy_to}/#{shared_dir}/#{repository_cache}/config/database.yml #{deploy_to}/#{shared_dir}/config/database.yml ; echo \"REMEMBER TO ALTER THE DATABASE SETUP!!!\"; fi"
+    run "if [ ! -e \"#{deploy_to}/#{shared_dir}/config/twitter.yml\" ] ; then cp #{deploy_to}/#{shared_dir}/#{repository_cache}/config/database.yml #{deploy_to}/#{shared_dir}/config/twitter.yml; fi"
 
     # link to the shared database.yml
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml" 
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/twitter.yml #{release_path}/config/twitter.yml" 
   end
   after "deploy:symlink", "deploy:symlink_config"
 end
