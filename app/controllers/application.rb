@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
     
   before_filter :adjust_format_for_mobile
-  before_filter :set_page_vars, :except => [:create, :destroy]
+  # before_filter :set_page_vars, :except => [:create, :destroy]
 
 protected  
   def adjust_format_for_mobile    
