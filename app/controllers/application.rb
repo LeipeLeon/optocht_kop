@@ -30,7 +30,7 @@ protected
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == "foo" && password == "bar"
+      username == AUTH_KEYS['username'] && password == AUTH_KEYS['password']
     end
   end
 end  
