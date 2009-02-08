@@ -4,7 +4,9 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta id="viewport" name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="apple-touch-icon" href="<%= image_path("apple-touch-icon.png") %>"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<%= stylesheet_link_tag 'scaffold', 'optocht' %>
 	<%= javascript_include_tag  :defaults %> 
     <title><%= @page.title -%></title>
@@ -24,7 +26,6 @@ div.title h1 {
 </head>
 <body>
 <div class="contentcol">
-	<h1>Admin :: Optocht Pampus - Lollebroek</h1>
 	<div class="menu">
 		| <% @menu.each {|link,title| %>
 			<%= link_to title, :controller => "/admin/#{link}" %> |

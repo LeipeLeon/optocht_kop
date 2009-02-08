@@ -1,3 +1,10 @@
+/* @override http://localhost:3000/stylesheets/twitter.css?1234050126 */
+div.contentcol {
+	margin: 0px auto;
+	width: 100%;	
+}
+
+
 .status-btn {
 	float: left;
 	padding: 5px 10px 0 5px;
@@ -30,9 +37,8 @@
 	background: url('http://static.twitter.com/images/round-btn-hover.gif'); 
 }
 #countdown, #countdown font {
-	font-size: 48px; 
+	font-size: 24px; 
 	font-family: Georgia; 
-	float: right;
 	margin-right: .4em;
 }
 #tweet {
@@ -41,11 +47,8 @@
 	/*border: 1px solid red;*/
 }
 #tweet_text {
-	width: 500px;
-	font-size: 150%;
 	border: 1px solid #ccc;
-	padding: .2em;
-	float: left;
+	font-size: 150%;
 }
 
 ul {

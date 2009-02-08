@@ -1,5 +1,5 @@
 <% content_for("header") do %>
-	<%= stylesheet_link_tag 'twitter' %> 
+	<%= stylesheet_link_tag 'twitter_mobile' %> 
 <script language="javascript" type="text/javascript">
 function limitText(limitField, limitNum) {
 	if (limitField.value.length == 0) {
@@ -24,7 +24,7 @@ function limitText(limitField, limitNum) {
 	<%= f.text_area :text, :value => '', :max => 140, 
 	:onKeyDown => "limitText(this.form.tweet_text,140);",
 	:onKeyUp   => "limitText(this.form.tweet_text,140);",
-	:rows => 2, :cols => 60
+	:rows => 2
 	 %>
 	<div class="status-btn">
 		<input type="submit" name="update" value="Verzend" disabled="true" id="update_submit" class="status-btn round-btn"/>

@@ -11,17 +11,6 @@ class Admin::TwitterController < AdminController
     end
   end
 
-  # GET /twitter/new
-  # GET /twitter/new.xml
-  def new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.iphone # new.html.erb
-      format.xml  { render :xml => @Twitter }
-    end
-  end
-
-
   # POST /twitter
   # POST /twitter.xml
   def create
@@ -31,9 +20,11 @@ class Admin::TwitterController < AdminController
       if @tweet
         flash[:notice] = 'Tweet was successfully created.'
         format.html { redirect_to(:action => :index) }
+        format.iphone { redirect_to(:action => :index) }
         format.xml  { render :xml => @tweet, :status => :created, :tweet => @tweet }
       else
         format.html { render :action => "new" }
+        format.iphone { render :action => "new" }
         format.xml  { render :xml => @tweet.errors, :status => :unprocessable_entity }
       end
     end

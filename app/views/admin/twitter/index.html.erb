@@ -1,6 +1,6 @@
-<%= link_to t('tweet.new'), new_admin_twitter_url %>
+<%= render :partial => "new.html" %>
 <ul>
 <% @tweets.each { |tweet| %>
-	<li><%= tweet.text %> (<%= tweet.created_at %>)</li>
+	<li><span>(<%= distance_of_time_in_words(Time.now, tweet.created_at, include_seconds = false) %>)</span><%= tweet.text %></li>
 <% } %>
 </ul>
