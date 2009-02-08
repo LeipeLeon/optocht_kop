@@ -1,5 +1,25 @@
-/* @override http://localhost:3000/stylesheets/optocht.css?1229782924 */
+/* @group columns */
+.col_left {
+	width: 470px;
+	float: left;
+}
 
+.col_right {
+	width: 300px;
+	float: right;
+	border-left: 1px solid #ccc;
+	padding-left: 10px;
+}
+
+hr {
+	clear: both;
+	color: white;
+	height: 0px;
+	border: 0px;
+}
+/* @end */
+
+/* @group layout */
 * { font-family: Arial,sans-serif; }
 
 html {
@@ -218,7 +238,7 @@ div.title a img {
 div.title h1 {
 	display: none;
 }
-
+/* @end */
 /* @group Menu*/
 .hor_menu {
 	list-style-type: none;
@@ -246,7 +266,7 @@ div.title h1 {
 }
 /* @end */
 
-
+/* @group FaceBook Colors */
 
 /* Default Facebook CSS */  
 .body  
@@ -331,3 +351,23 @@ div.title h1 {
     color: #ffffff;  
     cursor: hand;  
 }
+
+/* @end */
+/* @group News */
+
+.news_item {
+	padding: 1em 0;
+	border-bottom: 1px solid #ccc;
+}
+.news_item .title {
+	height: auto;
+	font-size: 1.2em;
+	padding-bottom: .6em;
+}
+
+.news_item .date {
+	font-size: 0.8em;
+	float: right;
+}
+
+/* @end */
