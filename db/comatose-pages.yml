@@ -1,18 +1,16 @@
 --- 
 slug: about
 filter_type: Textile
-body: |-
+body: |
   h2. Welkom!
   
-  * "Plaatje":/thumb/medium2.jpg (+/- 12Kb)
-  * "Live":/locations/ (+600Kb)
   
-  h3. Laatse Nieuws
   
-  {% for headline in news.latest_headlines %}
-  * {{ headline }}
-  {% endfor %}
-title: Optocht Pampus-Lollebroek
+  |_."Plaatje":/locations/static/|{background:#ddd}. |_."Live":/locations/|
+  |=.!images/Kop_Optocht_Static.gif!:/locations/static/|{background:#ddd}. |=.!images/Kop_Optocht_Live.gif!:/locations/|
+  |=. Snel en klein bestand <br/>(+/- 24Kb)|{background:#ddd}. |=. Interactief, grotere download <br/>(+600Kb)<br/>Automatische update elke minuut.|
+
+title: Home
 children: 
 - slug: about
   filter_type: Textile
