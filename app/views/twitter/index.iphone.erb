@@ -1,0 +1,8 @@
+<% content_for("header") do %>
+	<%= javascript_include_tag 'twitter_search' %> 
+	<%= stylesheet_link_tag 'twitter_search' %>
+<% end %>
+<h2>Twitter Live Stream</h2>
+<script type="text/javascript" charset="utf-8">
+  TwitterSearch.search('optocht');
+</script>
