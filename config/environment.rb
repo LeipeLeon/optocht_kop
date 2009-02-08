@@ -74,22 +74,6 @@ Rails::Initializer.run do |config|
   # config.action_controller.relative_url_root="/"
 end
 
-
-Comatose.configure do |config|
-  # Sets the text in the Admin UI's title area
-  config.admin_title = "Site Content"
-  config.admin_sub_title = "Content for the rest of us..."
-  config.default_tree_level = 5
-end
-
-# TODO: Een betere metode hiervoor verzinnen!
-Comatose.define_drop 'news' do
-  def latest_headlines
-    # Location.find(:all, :conditions=>['created_on > ?', 2.weeks.ago]).collect {|n| n.title }
-    Feed.find(:all, :limit => 5).collect {|n| "<a href=\"/feeds/#{n.id}\">#{n.title}</a>" }
-  end
-end
-
 # benodigd om controlleractions als rake task te kunnen draaien?
 # require 'action_controller/integration'
 
