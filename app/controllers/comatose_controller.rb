@@ -25,11 +25,12 @@ class ComatoseController < ApplicationController
       # For accurate uri creation, tell the page class which is the active mount point...
       ComatosePage.active_mount_info = get_active_mount_point(params[:index])
       respond_to do |format|
-        format.iphone do 
-          render :text=>page.to_html({'params'=>params.stringify_keys}), :layout=>'application.iphone', :status=>status
+        format.iphone do
+          params[:layout] = params[:layout]+'.iphone'
+          render :text=>page.to_html({'params'=>params.stringify_keys}), :layout=>get_page_layout, :status=>status
         end
         format.html do   
-          render :text=>page.to_html({'params'=>params.stringify_keys}), :layout=>'application', :status=>status
+          render :text=>page.to_html({'params'=>params.stringify_keys}), :layout=>get_page_layout, :status=>status
         end
         format.js
       end
