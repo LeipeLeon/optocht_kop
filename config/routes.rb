@@ -50,5 +50,6 @@ ActionController::Routing::Routes.draw do |map|
 
   # map.comatose_admin 
   # map.comatose_root '', :layout => 'cms', :use_cache => false #, :index=>'home'
+  map.about 'about', :controller => "home", :action => "about" # => :any, :about => :any }
   map.root :controller => "home"
 end

@@ -19,7 +19,7 @@
 	<div style="text-align:center;"><%= @page_title %></div>
 	<%= yield %>
 	<%= link_to "Home", root_url unless @page_title == "Home" %>
-	<div id="footnote"><%= t "footnote"%></div>
+	<div id="footnote"><%= link_to t("about"), about_url %> | <%= t "footnote"%></div>
 </body>
 </html>
 <script language="javascript">

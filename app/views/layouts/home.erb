@@ -25,7 +25,7 @@
 			<%= render :partial => 'news_feed' %>
 		</div>
 		<hr/>
-		<div id="footnote"><%= t "footnote"%></div>
+		<div id="footnote"><%= link_to t("about"), about_url %> | <%= t "footnote"%></div>
 	</div>
 	<%= google_analytics %>
 </body>

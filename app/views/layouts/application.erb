@@ -19,7 +19,7 @@
 	<%- if flash[:notice] -%><p class="infobox"><%= flash[:notice] %></p><%- end -%>
 	<h2 style="text-align:center;"><%= @page_title %></h2>
     <%= yield %>
-	<div id="footnote"><%= t "footnote"%></div>
+	<div id="footnote"><%= link_to t("about"), about_url %> | <%= t "footnote"%></div>
 </div>
 <% if RAILS_ENV == 'production' %>
 <script type="text/javascript">
