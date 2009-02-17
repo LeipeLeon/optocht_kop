@@ -20,19 +20,6 @@
 	<%= yield %>
 	<%= link_to "Home", root_url unless @page_title == "Home" %>
 	<div id="footnote"><%= link_to t("about"), about_url %> | <%= t "footnote"%></div>
+    <%= google_analytics %>
 </body>
 </html>
-<script language="javascript">
-	window.scrollTo(0, 1); // pan to the bottom, hides the location bar
-</script>
-<% if RAILS_ENV == 'production' %>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-2394915-5");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-<% end %>
