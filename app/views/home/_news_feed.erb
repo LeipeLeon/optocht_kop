@@ -1,6 +1,6 @@
 <h2 style="text-align:center;"><%= t(:'feed.title') %></h2>
 <div class="news" id="news">
-<% for item in Feed.last do %>
+<% for item in @feed do %>
 	<div class="news_item" id="news_item_<%= item.id %>">
 		<div class="date">
 			<%= item.created_at %>
