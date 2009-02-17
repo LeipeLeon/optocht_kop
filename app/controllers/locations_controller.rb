@@ -80,7 +80,7 @@ class LocationsController < ApplicationController
     
     respond_to do |format|
       format.html   { @static_url << "&size=640x480" }
-      format.iphone { @static_url << "&size=320x290" }
+      format.iphone { @static_url << "&size=270x270" }
     end
   end
   
