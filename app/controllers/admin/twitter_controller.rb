@@ -2,7 +2,7 @@ class Admin::TwitterController < AdminController
   before_filter :authenticate
 
   def index
-    @tweets = Twitter.read_status(:count => 5)
+    @tweets = FuKing::Twitter.read_status(:count => 5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,7 @@ class Admin::TwitterController < AdminController
   # POST /twitter
   # POST /twitter.xml
   def create
-    @tweet = Twitter.update(params[:tweet][:text])
+    @tweet = FuKing::Twitter.update(params[:tweet][:text])
 
     respond_to do |format|
       if @tweet
