@@ -13,6 +13,9 @@ en:
       list:    "Lijst"
       destroy: "Verwijder"
       update:  "Werk bij"
+  home:
+      home: "Home"
+      about: "Over"
   deelnemer:
       title: "Deelnemers Optocht 2009"
   location:
