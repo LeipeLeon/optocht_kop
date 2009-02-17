@@ -1,9 +1,8 @@
-set :application, "optocht"
+set :stages, %w(staging production)
+set :default_stage, "staging"
+require 'capistrano/ext/multistage'
 
-# If you aren't deploying to /u/apps/#{application} on the target
-# servers (which is the default), you can specify the actual location
-# via the :deploy_to variable:
-set :deploy_to, "/var/www/apps/#{application}"
+set :application, "optocht"
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
@@ -22,9 +21,6 @@ set :use_sudo, false
 
 set :chmod777, %w(public/thumb public log)
 
-role :app, "c"
-role :web, "c"
-role :db,  "c", :primary => true
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
