@@ -2,3 +2,5 @@ production:
     analytics: "UA-3011914-2"
 staging: 
     analytics: "UA-2394915-5"
+development: 
+    analytics: ""
