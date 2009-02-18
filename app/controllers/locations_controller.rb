@@ -93,7 +93,7 @@ class LocationsController < ApplicationController
         # flash[:notice] = "Location successfully created. #{Time.now}"
         respond_to do |format|
           format.iphone  { 
-            head :ok 
+            # head :ok 
             render :text => "Loc. Created @ #{Time.now}"
           }
           format.html { redirect_to(:controller => :home) }
@@ -102,7 +102,7 @@ class LocationsController < ApplicationController
         flash[:notice] = 'Error on creation.'
         respond_to do |format|
           format.iphone  { 
-            head :ok 
+            # head :ok 
             render :text => "Error on creation of location"
           }
           format.html { render :action => "edit" }
