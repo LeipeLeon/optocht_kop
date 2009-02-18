@@ -8,6 +8,6 @@ class AdminController < ApplicationController
 
 private 
   def menu
-    @menu = { "" => "Admin", :feeds => "News Feed", :twitter => "Twitter"}
+    @menu = { "" => "Admin", :locations => "Locations", :feeds => "News Feed", :twitter => "Twitter"}
   end
 end
