@@ -1,0 +1,28 @@
+<h1><%= t("form.list") %> locations</h1>
+
+<table class="list">
+  <tr>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Altitude</th>
+    <th>Horizontal accuracy</th>
+    <th>Vertical accuracy</th>
+  </tr>
+
+<% for location in @locations %>
+  <tr class="<%= cycle('odd','even')%>">
+    <td><%=h location.latitude %></td>
+    <td><%=h location.longitude %></td>
+    <td><%=h location.altitude %></td>
+    <td><%=h location.horizontal_accuracy %></td>
+    <td><%=h location.vertical_accuracy %></td>
+    <td><%= link_to t("form.show"), admin_location_path(location) %></td>
+    <td><%= link_to t("form.edit"), edit_admin_location_path(location) %></td>
+    <td><%= link_to t("form.destroy"), admin_location_path(location), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t("form.new") + ' locations', new_admin_location_path %>
