@@ -20,7 +20,13 @@ class ApplicationController < ActionController::Base
 
 protected  
   def adjust_format_for_mobile    
-    request.format = :iphone if in_mobile_view?
+    request.format = is_mobile_device? ? :mobile : :html
+    # if params[:format]
+    #   session[:mobile_view] = :"#{params['format']}"
+    # else
+    #   request.format = :mobile if in_mobile_view?
+    #   request.format = is_mobile_device? ? :mobile : :html
+    # end
   end
     
   # def set_page_vars
@@ -41,7 +47,7 @@ end
 #       
 #     respond_to do |format|  
 #       format.html # index.html.erb  
-#       format.iphone_html #index.iphone_html.erb  
+#       format.mobile_html #index.mobile_html.erb  
 #     end  
 #   end  
 # end  

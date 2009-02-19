@@ -25,8 +25,8 @@ class ComatoseController < ApplicationController
       # For accurate uri creation, tell the page class which is the active mount point...
       ComatosePage.active_mount_info = get_active_mount_point(params[:index])
       respond_to do |format|
-        format.iphone do
-          params[:layout] = params[:layout]+'.iphone'
+        format.mobile do
+          params[:layout] = params[:layout]+'.mobile'
           render :text=>page.to_html({'params'=>params.stringify_keys}), :layout=>get_page_layout, :status=>status
         end
         format.html do   

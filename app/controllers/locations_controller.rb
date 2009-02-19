@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
     # get_traveled if @location.size > 0
 
     respond_to do |format|
-      format.iphone
+      format.mobile
       format.html
       format.js
     end
@@ -80,7 +80,7 @@ class LocationsController < ApplicationController
     
     respond_to do |format|
       format.html   { @static_url << "&size=640x480" }
-      format.iphone { @static_url << "&size=270x270" }
+      format.mobile { @static_url << "&size=270x270" }
     end
   end
   
@@ -92,7 +92,7 @@ class LocationsController < ApplicationController
       if @location.save
         # flash[:notice] = "Location successfully created. #{Time.now}"
         respond_to do |format|
-          format.iphone  { 
+          format.mobile  { 
             # head :ok 
             render :text => "Loc. Created @ #{Time.now}"
           }
@@ -101,7 +101,7 @@ class LocationsController < ApplicationController
       else
         flash[:notice] = 'Error on creation.'
         respond_to do |format|
-          format.iphone  { 
+          format.mobile  { 
             # head :ok 
             render :text => "Error on creation of location"
           }
@@ -118,7 +118,7 @@ private
     @page_title = t('location.title')
     @location = Location.last
     @route    = Route.find(:all)
-    if request.format == :iphone
+    if request.format == :mobile
       @center = @location || @route.first
     else
       @center = Route.center
