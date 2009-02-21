@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/twitter: 
+  squashed: true
+  url: git@github.com:LeipeLeon/twitter.git
+  type: git
+  revision: c03854db35d38de4ff9c6c8d91e18d8961ea6400
+  branch: master
+  remote: braid/vendor/plugins/twitter
