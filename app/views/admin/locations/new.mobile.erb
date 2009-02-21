@@ -1,0 +1,35 @@
+<h1><%= t("form.new") %> locations</h1>
+
+<% form_for([:admin,@locations]) do |f| %>
+  <%= f.error_messages %>
+
+<table class="list">
+    <tr>
+		<th><%= f.label :latitude %>: </th>
+    	<td><%= f.text_field :latitude %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :longitude %>: </th>
+    	<td><%= f.text_field :longitude %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :altitude %>: </th>
+    	<td><%= f.text_field :altitude %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :horizontal_accuracy %>: </th>
+    	<td><%= f.text_field :horizontal_accuracy %></td>
+	</tr>
+    <tr>
+		<th><%= f.label :vertical_accuracy %>: </th>
+    	<td><%= f.text_field :vertical_accuracy %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= f.submit t("form.create") %></td>
+	</tr>
+<% end %>
+</table>
+<%= link_to t("form.back"), admin_locations_path %>
+
+

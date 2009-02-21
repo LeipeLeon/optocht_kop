@@ -1,0 +1,25 @@
+<table class="list">
+	<tr>
+		<th>Latitude:</th>
+		<td><%=h @locations.latitude %></td>
+	</tr>
+	<tr>
+		<th>Longitude:</th>
+		<td><%=h @locations.longitude %></td>
+	</tr>
+	<tr>
+		<th>Altitude:</th>
+		<td><%=h @locations.altitude %></td>
+	</tr>
+	<tr>
+		<th>Horizontal accuracy:</th>
+		<td><%=h @locations.horizontal_accuracy %></td>
+	</tr>
+	<tr>
+		<th>Vertical accuracy:</th>
+		<td><%=h @locations.vertical_accuracy %></td>
+	</tr>
+</table>
+
+<%= link_to t("form.edit"), edit_admin_location_path(@locations) %> |
+<%= link_to t("form.back"), admin_locations_path %>
