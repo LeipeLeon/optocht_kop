@@ -44,4 +44,18 @@ module ApplicationHelper
       } catch(err) {}</script>'
     end
   end
+
+  def distance_in_km(from, to)
+    dist = Haversine.new
+    dist.distance (
+      from.latitude, 
+      from.longitude, 
+      to.latitude, 
+      to.longitude
+    )
+    dist.distances['m']
+  end
+
+
+
 end
