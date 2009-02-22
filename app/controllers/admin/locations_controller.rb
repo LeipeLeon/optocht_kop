@@ -4,7 +4,7 @@ class Admin::LocationsController < AdminController
   before_filter :set_page_title, :except => [:create, :destroy]
 
   def index
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :order => "created_at DESC", :limit => 25)
 
     respond_to do |format|
       format.html # index.html.erb
