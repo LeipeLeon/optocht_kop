@@ -4,7 +4,7 @@ class FeedsController < ApplicationController
   before_filter :set_page_title, :except => [:create, :destroy]
 
   def index
-    @feeds = Feed.find(:all, :sort => "created_at DESC")
+    @feeds = Feed.find(:all, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
