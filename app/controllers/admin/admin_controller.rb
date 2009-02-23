@@ -12,7 +12,12 @@ class Admin::AdminController < ApplicationController
 
 private 
   def menu
-    @menu = { "" => "Admin", :locations => "Locations", :feeds => "News Feed", :twitter => "Twitter"}
+    @menu = { 
+      "admin" => "Admin", 
+      "admin_locations" => "Locations", 
+      "admin_feeds" => "News Feed", 
+      "admin_twitter_index" => "Twitter"
+    }
   end
 
   def authenticate

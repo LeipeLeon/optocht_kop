@@ -27,9 +27,7 @@ div.title h1 {
 <body>
 <div class="contentcol">
 	<div class="menu">
-		| <% @menu.each {|link,title| %>
-			<%= link_to title, :controller => "/admin/#{link}" %> |
-		<% }%>
+	    <%= admin_menu %>
 	</div>
 	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
     <%= yield %>
