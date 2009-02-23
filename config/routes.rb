@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :feeds
 
-  map.resources :deelnemers
+  map.resources :twitter
   
   map.resources :locations, :collection => {:last_locations => :any, :static => :get}
   # map.resources :locations
