@@ -49,8 +49,6 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/:action/:id.:format'
   # map.connect ':controller/:action.:format'
 
-  # map.comatose_admin 
-  # map.comatose_root '', :layout => 'cms', :use_cache => false #, :index=>'home'
   map.about 'about', :controller => "home", :action => "about" # => :any, :about => :any }
   map.root :controller => "home"
 end
