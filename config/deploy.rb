@@ -60,4 +60,17 @@ namespace :deploy do
     }
   end
   after "deploy:symlink", "deploy:symlink_config"
+
+  namespace :rake do
+    desc "Show all tasks on remote server"
+    task :show_tasks do
+      run("cd #{deploy_to}/current; rake -T")
+    end
+
+    desc "Invoke remote rake task "
+    task :invoke do
+      run("cd #{deploy_to}/current; rake RAILS_ENV=#{stage} #{ENV['task']}")
+    end
+  end
+
 end
