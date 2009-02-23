@@ -7,7 +7,8 @@ the app's view controllers.
 */
 //static NSString *MyWebhost = @"http://192.168.134.197:3000/locations/";
 //static NSString *MyWebhost = @"http://webserver.vda-groep.nl/locations/";
-static NSString *MyWebhost = @"http://leipeleon.dyndns.org/optocht/locations/create/";
+//static NSString *MyWebhost = @"http://leipeleon.dyndns.org/optocht/locations/create/";
+static NSString *MyWebhost = @"http://kop.pampus-lollebroek.nl/locations/create/";
 
 // This protocol is used to send the text for location updates back to another view controller
 @protocol MyCLControllerDelegate <NSObject>
