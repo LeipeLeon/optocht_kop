@@ -1,10 +1,10 @@
-class Admin::LocationsController < AdminController
+class Admin::LocationsController < Admin::AdminController
+  before_filter :set_page_title, :except => [:create, :destroy]
   # GET /admin/locations
   # GET /admin/locations.xml
-  before_filter :set_page_title, :except => [:create, :destroy]
 
   def index
-    @locations = Location.find(:all, :order => "created_at DESC", :limit => 25)
+    @locations = Location.paginate :page => params[:page], :order => "created_at DESC", :limit => 25
 
     respond_to do |format|
       format.html # index.html.erb

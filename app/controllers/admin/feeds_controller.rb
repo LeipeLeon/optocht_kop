@@ -1,4 +1,4 @@
-class Admin::FeedsController < AdminController
+class Admin::FeedsController < Admin::AdminController
   # GET /feeds
   # GET /feeds.xml
   before_filter :set_page_title, :except => [:create, :destroy]

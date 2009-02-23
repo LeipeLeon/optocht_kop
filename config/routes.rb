@@ -36,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :twitter
     admin.resources :locations
   end
+  map.admin 'admin', :controller => "admin/admin"
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
 

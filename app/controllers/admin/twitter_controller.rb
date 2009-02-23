@@ -1,4 +1,4 @@
-class Admin::TwitterController < AdminController
+class Admin::TwitterController < Admin::AdminController
   before_filter :authenticate
 
   def index

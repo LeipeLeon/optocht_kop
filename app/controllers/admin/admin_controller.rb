@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class Admin::AdminController < ApplicationController
   layout proc{ |c| c.request.xhr? ? false : "admin" }
   before_filter :authenticate
   before_filter :menu
@@ -13,5 +13,11 @@ class AdminController < ApplicationController
 private 
   def menu
     @menu = { "" => "Admin", :locations => "Locations", :feeds => "News Feed", :twitter => "Twitter"}
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == AUTH_KEYS['username'] && password == AUTH_KEYS['password']
+    end
   end
 end

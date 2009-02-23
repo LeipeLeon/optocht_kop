@@ -28,16 +28,7 @@ protected
     #   request.format = is_mobile_device? ? :mobile : :html
     # end
   end
-    
-  # def set_page_vars
-  #   @page = ComatosePage.new
-  # end
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == AUTH_KEYS['username'] && password == AUTH_KEYS['password']
-    end
-  end
 end  
   
 # class DashboardController < ApplicationController  
