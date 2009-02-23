@@ -4,7 +4,7 @@
 =end  
 
 class Haversine
-  attr_accessor :distances
+  attr_accessor :distances, :delta
   
   # haversine.rb  
   # http://sawdust.see-do.org/gps/files/HaversineFormulaInRuby.html
@@ -46,11 +46,6 @@ class Haversine
   Rfeet = Rmiles * 5282   # radius in feet  
   Rmeters = Rkm * 1000    # radius in meters  
   
-  def initialize
-    @distances = Hash.new   # this is global because if computing lots of track point distances, it didn't make  
-                            # sense to new a Hash each time over potentially 100's of thousands of points  
-  end
-
   def distance( lat1, lon1, lat2, lon2 )  
     dlon = lon2 - lon1  
     dlat = lat2 - lat1  
@@ -67,16 +62,38 @@ class Haversine
     # puts "dlon: #{dlon}, dlon_rad: #{dlon_rad}, dlat: #{dlat}, dlat_rad: #{dlat_rad}"  
   
     a = (Math.sin(dlat_rad/2))**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * (Math.sin(dlon_rad/2))**2  
-    c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))  
-  
-    dMi = Rmiles * c          # delta between the two points in miles  
-    dKm = Rkm * c             # delta in kilometers  
-    dFeet = Rfeet * c         # delta in feet  
-    dMeters = Rmeters * c     # delta in meters  
-  
-    @distances["mi"] = dMi  
-    @distances["km"] = dKm  
-    @distances["ft"] = dFeet  
-    @distances["m"] = dMeters  
+    @delta = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))  
   end  
+  
+  def to_mi
+    Rmiles  * @delta # delta between the two points in miles  
+  end
+
+  def to_ft
+    Rfeet   * @delta # delta in feet  
+  end
+
+  def to_km
+    Rkm     * @delta # delta in kilometers  
+  end
+
+  def to_m
+    Rmeters * @delta # delta in meters  
+  end
+
+  def self.delta_to_mi(delta)
+    Rmiles * delta
+  end
+
+  def self.delta_to_ft(delta)
+    Rfeet * delta
+  end
+
+  def self.delta_to_km(delta)
+    Rkm * delta
+  end
+
+  def self.delta_to_m(delta)
+    Rmeters * delta
+  end
 end
