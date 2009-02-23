@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090205182041) do
+ActiveRecord::Schema.define(:version => 20090222215537) do
 
   create_table "comatose_page_versions", :force => true do |t|
     t.integer  "comatose_page_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20090205182041) do
     t.float    "vertical_accuracy"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "traveled_distance"
   end
 
   create_table "routes", :force => true do |t|
