@@ -1,5 +1,7 @@
 <h1><%= t("form.list") %> locations</h1>
-<% prev_loc = nil %>
+
+<%= will_paginate @locations, :class => 'digg_pagination' %>
+
 <table class="lists">
   <tr>
     <th>Lat</th>
