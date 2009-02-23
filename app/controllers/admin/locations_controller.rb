@@ -69,8 +69,8 @@ class Admin::LocationsController < Admin::AdminController
     respond_to do |format|
       if @locations.update_attributes(params[:location])
         flash[:notice] = 'Locations was successfully updated.'
-        format.html { redirect_to(admin_locations_url) }
-        format.mobile { redirect_to(admin_locations_url) }
+        format.html { redirect_to(admin_locations_url(:page => params[:page])) }
+        format.mobile { redirect_to(admin_locations_url(:page => params[:page])) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,8 +87,8 @@ class Admin::LocationsController < Admin::AdminController
     @locations.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_locations_url) }
-      format.mobile { redirect_to(admin_locations_url) }
+      format.html { redirect_to(admin_locations_url(:page => params[:page])) }
+      format.mobile { redirect_to(admin_locations_url(:page => params[:page])) }
       format.xml  { head :ok }
     end
   end
