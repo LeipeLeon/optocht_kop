@@ -20,12 +20,12 @@
     <td class="list_item"><%=h location.vertical_accuracy %></td>
     <td class="list_item"><%=h distance_of_time_in_dutch(location.created_at) %></td>
     <td class="list_item"><%=h distance_in_km(location.traveled_distance) unless location.traveled_distance.blank? %></td>
-    <td class="list_item"><%= link_to t("form.show"), admin_location_path(location) %></td>
-    <td class="list_item"><%= link_to t("form.destroy"), admin_location_path(location), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="list_item"><%= link_to t("form.edit"), edit_admin_location_path(location, :page => params[:page]) %></td>
+    <td class="list_item"><%= link_to t("form.destroy"), admin_location_path(location, :page => params[:page]), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% prev_loc = location %>
 <% end %>
 </table>
 <br />
 
-<%= link_to t("form.new") + ' locations', new_admin_location_path %>
+<%= link_to t("form.new") + ' locations', new_admin_location_path(:page => params[:page]) %>

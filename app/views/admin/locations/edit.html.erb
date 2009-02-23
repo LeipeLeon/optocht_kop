@@ -4,6 +4,7 @@
   <%= f.error_messages %>
 
 <table class="list">
+    <%= f.hidden_field :page, :name => "page", :value => params[:page] %>
 	<tr>
 		<th><%= f.label :latitude %></th>
 		<td><%= f.text_field :latitude %></td>
@@ -32,4 +33,4 @@
 </table>
 
 <%= link_to t("form.show"), @locations %> |
-<%= link_to t("form.back"), admin_locations_path %>
+<%= link_to t("form.back"), admin_locations_path(:page => params[:page]) %>

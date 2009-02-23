@@ -21,5 +21,5 @@
 	</tr>
 </table>
 
-<%= link_to t("form.edit"), edit_admin_location_path(@locations) %> |
-<%= link_to t("form.back"), admin_locations_path %>
+<%= link_to t("form.edit"), edit_admin_location_path(@locations, :page => params[:page]) %> |
+<%= link_to t("form.back"), admin_locations_path(:page => params[:page]) %>
