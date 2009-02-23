@@ -19,7 +19,7 @@
     <td class="list_item"><%=h location.horizontal_accuracy %></td>
     <td class="list_item"><%=h location.vertical_accuracy %></td>
     <td class="list_item"><%=h distance_of_time_in_dutch(location.created_at) %></td>
-    <td class="list_item"><%=h distance_in_km(location.traveled_distance) if ! location.traveled_distance.blank? && location.traveled_distance.to_i > 0 %></td>
+    <td class="list_item"><%=h "%03.2f m" % distance_in_m(location.traveled_distance) if ! location.traveled_distance.blank? && location.traveled_distance.to_f > 0 %></td>
     <td class="list_item"><%= link_to t("form.edit"), edit_admin_location_path(location, :page => params[:page]) %></td>
     <td class="list_item"><%= link_to t("form.destroy"), admin_location_path(location, :page => params[:page]), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

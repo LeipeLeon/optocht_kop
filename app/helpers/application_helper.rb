@@ -45,7 +45,7 @@ module ApplicationHelper
     end
   end
 
-  def distance_in_km(delta)
+  def distance_in_m(delta)
     Haversine.delta_to_m(delta)
   end
 
