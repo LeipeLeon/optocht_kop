@@ -4,7 +4,14 @@ class Admin::LocationsController < Admin::AdminController
   # GET /admin/locations.xml
 
   def index
-    @locations = Location.paginate :page => params[:page], :order => "created_at DESC", :limit => 25
+    options = {
+      :page => params[:page],
+      :order => "created_at DESC",
+      :limit => 25
+    }
+    options[:conditions] = "traveled_distance > #{Haversine.m_to_delta(params[:filter].to_f)}" if params[:filter]
+
+    @locations = Location.paginate options
 
     respond_to do |format|
       format.html # index.html.erb

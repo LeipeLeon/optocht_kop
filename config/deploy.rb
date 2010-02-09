@@ -8,7 +8,7 @@ set :application, "optocht"
 # your SCM below:
 set :scm, :git
 default_run_options[:pty] = true
-set :repository, "git@github.com:LeipeLeon/optocht.git"
+set :repository, "git@github.com:LeipeLeon/optocht_kop.git"
 # set :repository, "file://."
 set :repository_cache, "git_master"
 set :deploy_via, :remote_cache
